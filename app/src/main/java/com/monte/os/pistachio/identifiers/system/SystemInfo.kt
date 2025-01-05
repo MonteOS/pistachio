@@ -30,6 +30,18 @@ class SystemInfo @Inject constructor(
         return Build.VERSION.RELEASE
     }
 
+    override fun architecture(): String {
+        return Shell.cmd("uname -m")
+            .exec()
+            .out
+            .firstOrNull()
+            .toString()
+    }
+
+    override fun instructionSets(): String {
+        return Build.SUPPORTED_ABIS.toList().toString()
+    }
+
     override fun api(): String {
         return Build.VERSION.SDK_INT.toString()
     }

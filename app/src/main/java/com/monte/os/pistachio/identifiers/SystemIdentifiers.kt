@@ -24,7 +24,9 @@ interface SystemIdentifiers {
                 "Java VM" to repository.javaVM(),
                 "Fingerprint" to repository.fingerprint(),
                 "Build Date" to repository.buildDate(),
-                "Builder" to repository.builder()
+                "Builder" to repository.builder(),
+                "Architecture" to repository.architecture(),
+                "Instruction sets" to repository.instructionSets()
             )
         }
     }

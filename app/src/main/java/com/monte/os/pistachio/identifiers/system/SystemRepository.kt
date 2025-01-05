@@ -10,6 +10,10 @@ interface SystemRepository {
 
     fun release(): String
 
+    fun architecture(): String
+
+    fun instructionSets(): String
+
     fun api(): String
 
     fun device(): String
