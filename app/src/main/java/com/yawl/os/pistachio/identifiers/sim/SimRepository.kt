@@ -2,7 +2,7 @@ package com.yawl.os.pistachio.identifiers.sim
 
 interface SimRepository {
 
-    fun sim(): List<SimData>
+    fun sim(): SimData
 
 }
 

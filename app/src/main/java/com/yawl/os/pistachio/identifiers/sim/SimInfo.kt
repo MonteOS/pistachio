@@ -8,7 +8,7 @@ import javax.inject.Inject
 class SimInfo @Inject constructor(
     private val context: Context
 ) : SimRepository {
-    override fun sim(): List<SimData> {
+    override fun sim(): SimData {
         val telephony = context.getSystemService(
             Context.TELEPHONY_SERVICE
         ) as TelephonyManager
@@ -20,13 +20,11 @@ class SimInfo @Inject constructor(
             .find { it[1] == simCountryIso }
             ?.firstOrNull() ?: ""
 
-        return listOf(
-            SimData(
-                operatorName = telephony.simOperatorName,
-                operatorCode = telephony.simOperator,
-                country = simCountryIso,
-                countryCode = countryCode
-            )
+        return SimData(
+            operatorName = telephony.simOperatorName,
+            operatorCode = telephony.simOperator,
+            country = simCountryIso,
+            countryCode = countryCode
         )
     }
 }
