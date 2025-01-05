@@ -29,7 +29,7 @@ class AppViewModel @Inject constructor(
     fun state() = state
 
     fun load() {
-        async({
+        async {
             val sim = sim.sim()
             val data = listOf(
                 HeaderWithPairs(
@@ -87,6 +87,6 @@ class AppViewModel @Inject constructor(
             state.value = State.Success(
                 data = data
             )
-        })
+        }
     }
 }
