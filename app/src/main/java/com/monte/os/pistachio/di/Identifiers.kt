@@ -3,6 +3,7 @@ package com.monte.os.pistachio.di
 import com.monte.os.pistachio.identifiers.BuildIdentifiers
 import com.monte.os.pistachio.identifiers.DeviceIdentifiers
 import com.monte.os.pistachio.identifiers.DisplayIdentifiers
+import com.monte.os.pistachio.identifiers.DrmIdentifiers
 import com.monte.os.pistachio.identifiers.SimIdentifiers
 import com.monte.os.pistachio.identifiers.SystemIdentifiers
 import com.monte.os.pistachio.identifiers.TimeAndDateIdentifiers
@@ -32,13 +33,9 @@ internal object Identifiers {
     @Provides
     @Singleton
     internal fun provideDeviceIdentifiers(
-        drm: DrmRepository,
         appScope: AppScopeRepository,
     ): DeviceIdentifiers {
-        return DeviceIdentifiers.Base(
-            drm,
-            appScope
-        )
+        return DeviceIdentifiers.Base(appScope)
     }
 
     @Provides
@@ -72,6 +69,14 @@ internal object Identifiers {
         repository: SystemRepository
     ): TimeAndDateIdentifiers {
         return TimeAndDateIdentifiers.Base(repository)
+    }
+
+    @Provides
+    @Singleton
+    internal fun provideDRMIdentifiers(
+        repository: DrmRepository
+    ): DrmIdentifiers {
+        return DrmIdentifiers.Base(repository)
     }
 
 }

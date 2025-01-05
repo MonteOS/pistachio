@@ -3,6 +3,7 @@ package com.monte.os.pistachio
 import com.monte.os.pistachio.identifiers.BuildIdentifiers
 import com.monte.os.pistachio.identifiers.DeviceIdentifiers
 import com.monte.os.pistachio.identifiers.DisplayIdentifiers
+import com.monte.os.pistachio.identifiers.DrmIdentifiers
 import com.monte.os.pistachio.identifiers.SimIdentifiers
 import com.monte.os.pistachio.identifiers.SystemIdentifiers
 import com.monte.os.pistachio.identifiers.TimeAndDateIdentifiers
@@ -16,6 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class AppViewModel @Inject constructor(
     private val system: SystemIdentifiers,
+    private val drm: DrmIdentifiers,
     private val build: BuildIdentifiers,
     private val device: DeviceIdentifiers,
     private val sim: SimIdentifiers,
@@ -35,23 +37,27 @@ class AppViewModel @Inject constructor(
             state.value = State.Success(
                 data = listOf(
                     HeaderWithPairs(
-                        header = "Device Identifiers",
+                        header = "Device",
                         data = device.list()
                     ),
                     HeaderWithPairs(
-                        header = "SIM Identifiers",
+                        header = "DRM",
+                        data = drm.list()
+                    ),
+                    HeaderWithPairs(
+                        header = "SIM",
                         data = sim.list()
                     ),
                     HeaderWithPairs(
-                        header = "Build Identifiers",
+                        header = "Build",
                         data = build.list()
                     ),
                     HeaderWithPairs(
-                        header = "System Identifiers",
+                        header = "System",
                         data = system.list()
                     ),
                     HeaderWithPairs(
-                        header = "Display Identifiers",
+                        header = "Display",
                         data = display.list()
                     ),
                     HeaderWithPairs(

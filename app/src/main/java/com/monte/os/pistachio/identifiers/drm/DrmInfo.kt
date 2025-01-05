@@ -8,9 +8,29 @@ import javax.inject.Inject
 class DrmInfo @Inject constructor(
 ) : DrmRepository {
 
+    private val widevine = MediaDrm(WIDEVINE_UUID)
+
+    override fun widevineVendor(): String {
+        return widevine.getPropertyString(
+            MediaDrm.PROPERTY_VENDOR
+        )
+    }
+
+    override fun widevineVersion(): String {
+        return widevine.getPropertyString(
+            MediaDrm.PROPERTY_VERSION
+        )
+    }
+
+    override fun widevineAlgorithms(): String {
+        return widevine.getPropertyString(
+            MediaDrm.PROPERTY_ALGORITHMS
+        )
+    }
+
     override fun drmId(): String {
         return Base64.encodeToString(
-            MediaDrm(WIDEVINE_UUID).getPropertyByteArray(
+            widevine.getPropertyByteArray(
                 MediaDrm.PROPERTY_DEVICE_UNIQUE_ID
             ),
             Base64.DEFAULT
