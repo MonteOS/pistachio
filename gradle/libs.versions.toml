@@ -1,31 +1,86 @@
 [versions]
+# build core
 agp = "8.7.3"
+java = "17"
 kotlin = "2.1.0"
-coreKtx = "1.15.0"
-lifecycleRuntimeKtx = "2.8.7"
+kotlinLanguageVersion = "1.9"
+
+# build configuration
+compileSdk = "35"
+targetSdk = "35"
+minSdk = "30"
+buildTools = "34.0.0"
+
+# compose
 activityCompose = "1.9.3"
 composeBom = "2024.12.01"
-hilt = "2.53"
-ksp = "2.1.0-1.0.29"
+androidxComposeCompiler = "1.5.12"
+androidxComposeNavigation = "2.8.5"
 
+# android-ktx
+coreKtx = "1.15.0"
+coreSplash = "1.0.1"
+lifecycleRuntimeKtx = "2.8.7"
+
+# other
+kotlinCoroutines = "1.9.0"
+kotlinSerialization = "1.7.3"
+kotlinxDatetime = "0.5.0"
+ksp = "2.1.0-1.0.29"
+hilt = "2.53"
+hilt-compiler = "1.2.0"
 libsu = "6.0.0"
 
 [libraries]
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+
+# android-ktx
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplash" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
-androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hilt-compiler" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-compiler" }
+
+# compose
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling-base = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxComposeNavigation" }
+
+# compose material
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-material-iconsExtended = { group = "androidx.compose.material", name = "material-icons-extended" }
+
+# di
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+javax-inject = { group = "javax.inject", name = "javax.inject", version = "1" }
+
+# other
+kotlin-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinCoroutines" }
+kotlin-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinCoroutines" }
+kotlin-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinSerialization" }
 libsu-core = { group = "com.github.topjohnwu.libsu", name = "core", version.ref = "libsu"  }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+
+convention-android-application = { id = "convention.kotlin-android-app", version = "unspecified" }
+convention-android-library = { id = "convention.kotlin-android-library", version = "unspecified" }
+convention-android-compose = { id = "convention.android-compose", version = "unspecified" }
+convention-android-hilt = { id = "convention.hilt", version = "unspecified" }
+convention-kotlin-serialization = { id = "convention.serialization", version = "unspecified" }
+convention-kotlin-jvm = { id = "convention.kotlin-jvm", version = "unspecified" }
+convention-signing = { id = "convention.signing", version = "unspecified" }

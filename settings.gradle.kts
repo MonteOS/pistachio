@@ -1,5 +1,9 @@
 @file:Suppress("UnstableApiUsage")
 
+rootProject.name = "Pistachio"
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
     repositories {
         google {
@@ -23,6 +27,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Pistachio"
+includeBuild("build-logic")
 include(":app")
- 
