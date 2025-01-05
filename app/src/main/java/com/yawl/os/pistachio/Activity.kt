@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.yawl.os.pistachio.core.Property
+import com.yawl.os.pistachio.screen.ScreenInfo
 import com.yawl.os.pistachio.system.SystemInfo
 import com.yawl.os.pistachio.ui.List
 
@@ -17,7 +18,15 @@ class Activity : ComponentActivity() {
             Scaffold { innerPadding ->
                 val property = Property()
                 val general = SystemInfo(property)
+                val screen = ScreenInfo(this)
                 val pairs = listOf(
+                    "Resolution" to screen.resolution(),
+                    "Ratio" to screen.ratio(),
+                    "Density" to screen.density(),
+                    "X DPI" to screen.xDPI(),
+                    "Y DPI" to screen.yDPI(),
+                    "Refresh rate" to screen.refreshRate(),
+                    "Modes" to screen.modes(),
                     "Manufacturer" to general.manufacturer(),
                     "Brand" to general.brand(),
                     "Model" to general.model(),

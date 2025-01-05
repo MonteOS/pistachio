@@ -2,8 +2,9 @@ package com.yawl.os.pistachio.screen
 
 import android.content.Context
 import android.view.WindowManager
+import kotlin.math.roundToInt
 
-class Screen(
+class ScreenInfo(
     private val context: Context
 ): ScreenRepository {
 
@@ -32,23 +33,23 @@ class Screen(
     }
 
     override fun density(): String {
-        return ""
+        return "${context.resources.displayMetrics.densityDpi} dpi"
     }
 
     override fun xDPI(): String {
-        return ""
+        return "${context.resources.displayMetrics.xdpi} dpi"
     }
 
     override fun yDPI(): String {
-        return ""
+        return "${context.resources.displayMetrics.ydpi} dpi"
     }
 
     override fun ppi(): String {
-        return ""
+        return "${context.resources.displayMetrics.xdpi} dpi"
     }
 
     override fun refreshRate(): String {
-        return ""
+        return "${context.display.refreshRate.roundToInt()} Hz"
     }
 
     override fun modes(): String {
