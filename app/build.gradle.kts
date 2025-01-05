@@ -6,10 +6,10 @@ plugins {
 }
 
 android {
-    namespace = "com.yawl.os.pistachio"
+    namespace = "com.monte.os.pistachio"
 
     defaultConfig {
-        applicationId = "com.yawl.os.pistachio"
+        applicationId = "com.monte.os.pistachio"
         versionCode = 1
         versionName = "1.0"
         vectorDrawables {
