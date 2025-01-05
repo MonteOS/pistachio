@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import com.yawl.os.pistachio.appscope.AppScopeInfo
 import com.yawl.os.pistachio.core.Property
 import com.yawl.os.pistachio.screen.ScreenInfo
+import com.yawl.os.pistachio.sim.SimInfo
 import com.yawl.os.pistachio.system.SystemInfo
 import com.yawl.os.pistachio.ui.List
 
@@ -21,7 +22,9 @@ class Activity : ComponentActivity() {
                 val general = SystemInfo(property)
                 val screen = ScreenInfo(this)
                 val appScope = AppScopeInfo(this)
+                val sim = SimInfo(this)
                 val pairs = listOf(
+                    "SIM" to sim.sim().toString(),
                     "Android ID" to appScope.androidId(),
                     "Resolution" to screen.resolution(),
                     "Ratio" to screen.ratio(),
