@@ -8,9 +8,10 @@ import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
+import javax.inject.Inject
 
 
-class SystemInfo(
+class SystemInfo @Inject constructor(
     private val property: Property
 ) : SystemRepository {
     override fun manufacturer(): String {

@@ -3,8 +3,9 @@ package com.yawl.os.pistachio.sim
 import android.content.Context
 import android.telephony.TelephonyManager
 import com.yawl.os.pistachio.R
+import javax.inject.Inject
 
-class SimInfo(
+class SimInfo @Inject constructor(
     private val context: Context
 ) : SimRepository {
     override fun sim(): List<SimData> {

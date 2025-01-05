@@ -1,7 +1,14 @@
 package com.yawl.os.pistachio.core
 
-class Property {
-    fun get(property: String): String {
+import javax.inject.Inject
+
+interface PropertyRepository {
+    fun get(property: String): String
+}
+
+class Property @Inject constructor(
+) : PropertyRepository {
+    override fun get(property: String): String {
         return runCatching {
             ProcessBuilder(PATH, property)
                 .redirectErrorStream(true)

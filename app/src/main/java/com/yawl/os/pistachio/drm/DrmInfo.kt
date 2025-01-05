@@ -3,8 +3,10 @@ package com.yawl.os.pistachio.drm
 import android.media.MediaDrm
 import android.util.Base64
 import java.util.UUID
+import javax.inject.Inject
 
-class DrmInfo : DrmRepository {
+class DrmInfo @Inject constructor(
+) : DrmRepository {
 
     override fun drmId(): String {
         return Base64.encodeToString(

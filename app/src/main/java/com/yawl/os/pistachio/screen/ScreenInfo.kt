@@ -2,9 +2,10 @@ package com.yawl.os.pistachio.screen
 
 import android.content.Context
 import android.view.WindowManager
+import javax.inject.Inject
 import kotlin.math.roundToInt
 
-class ScreenInfo(
+class ScreenInfo @Inject constructor(
     private val context: Context
 ): ScreenRepository {
 
@@ -49,7 +50,10 @@ class ScreenInfo(
     }
 
     override fun refreshRate(): String {
-        return "${context.display.refreshRate.roundToInt()} Hz"
+        val service = context.getSystemService(
+            Context.WINDOW_SERVICE
+        ) as WindowManager
+        return "${service.defaultDisplay.refreshRate.roundToInt()} Hz"
     }
 
     override fun modes(): String {

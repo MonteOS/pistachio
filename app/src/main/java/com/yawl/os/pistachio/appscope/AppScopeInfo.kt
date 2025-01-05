@@ -4,8 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.provider.Settings
 import android.provider.Settings.Secure.ANDROID_ID
+import javax.inject.Inject
 
-class AppScopeInfo(
+class AppScopeInfo @Inject constructor(
     private val context: Context
 ): AppScopeRepository {
 
