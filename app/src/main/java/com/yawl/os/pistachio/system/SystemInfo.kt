@@ -3,7 +3,6 @@ package com.yawl.os.pistachio.system
 import android.os.Build
 import com.topjohnwu.superuser.Shell
 import com.yawl.os.pistachio.core.Property
-import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -66,14 +65,6 @@ class SystemInfo(
 
     override fun baseband(): String {
         return Build.getRadioVersion()
-    }
-
-    override fun gps(): String {
-        return ""
-    }
-
-    override fun bluetooth(): String {
-        return ""
     }
 
     override fun buildType(): String {

@@ -30,10 +30,6 @@ interface SystemRepository {
 
     fun baseband(): String
 
-    fun gps(): String
-
-    fun bluetooth(): String
-
     fun buildType(): String
 
     fun tags(): String

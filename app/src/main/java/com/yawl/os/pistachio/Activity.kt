@@ -32,8 +32,6 @@ class Activity : ComponentActivity() {
                     "Security" to general.security(),
                     "Kernel" to general.kernelVersion(),
                     "Baseband" to general.baseband(),
-                    "GPS" to general.gps(),
-                    "Bluetooth" to general.bluetooth(),
                     "Build Type" to general.buildType(),
                     "Tags" to general.tags(),
                     "Incremental" to general.incremental(),
