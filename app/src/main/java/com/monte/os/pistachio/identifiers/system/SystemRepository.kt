@@ -8,7 +8,7 @@ interface SystemRepository {
 
     fun model(): String
 
-    fun release(): String
+    fun androidVersion(): String
 
     fun architecture(): String
 

@@ -15,7 +15,7 @@ interface SystemIdentifiers {
                 "Manufacturer" to repository.manufacturer(),
                 "Brand" to repository.brand(),
                 "Model" to repository.model(),
-                "Release" to repository.release(),
+                "Android Version" to repository.androidVersion(),
                 "API" to repository.api(),
                 "Device" to repository.device(),
                 "Product" to repository.product(),

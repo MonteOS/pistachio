@@ -26,7 +26,7 @@ class SystemInfo @Inject constructor(
         return Build.MODEL
     }
 
-    override fun release(): String {
+    override fun androidVersion(): String {
         return Build.VERSION.RELEASE
     }
 
