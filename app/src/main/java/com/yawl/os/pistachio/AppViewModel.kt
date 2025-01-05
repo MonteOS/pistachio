@@ -1,11 +1,11 @@
 package com.yawl.os.pistachio
 
 import androidx.lifecycle.ViewModel
-import com.yawl.os.pistachio.appscope.AppScopeRepository
-import com.yawl.os.pistachio.drm.DrmRepository
-import com.yawl.os.pistachio.screen.ScreenRepository
-import com.yawl.os.pistachio.sim.SimRepository
-import com.yawl.os.pistachio.system.SystemRepository
+import com.yawl.os.pistachio.identifiers.appscope.AppScopeRepository
+import com.yawl.os.pistachio.identifiers.drm.DrmRepository
+import com.yawl.os.pistachio.identifiers.screen.ScreenRepository
+import com.yawl.os.pistachio.identifiers.sim.SimRepository
+import com.yawl.os.pistachio.identifiers.system.SystemRepository
 import com.yawl.os.pistachio.ui.HeaderWithPairs
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

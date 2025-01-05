@@ -1,4 +1,4 @@
-package com.yawl.os.pistachio.appscope
+package com.yawl.os.pistachio.identifiers.appscope
 
 import android.annotation.SuppressLint
 import android.content.Context

@@ -1,4 +1,4 @@
-package com.yawl.os.pistachio.drm
+package com.yawl.os.pistachio.identifiers.drm
 
 import android.media.MediaDrm
 import android.util.Base64

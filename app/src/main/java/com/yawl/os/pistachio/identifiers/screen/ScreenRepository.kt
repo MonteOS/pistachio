@@ -1,4 +1,4 @@
-package com.yawl.os.pistachio.screen
+package com.yawl.os.pistachio.identifiers.screen
 
 interface ScreenRepository {
 

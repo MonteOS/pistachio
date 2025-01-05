@@ -1,8 +1,8 @@
-package com.yawl.os.pistachio.system
+package com.yawl.os.pistachio.identifiers.system
 
 import android.os.Build
 import com.topjohnwu.superuser.Shell
-import com.yawl.os.pistachio.core.Property
+import com.yawl.os.pistachio.identifiers.core.Property
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date

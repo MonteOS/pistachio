@@ -1,4 +1,4 @@
-package com.yawl.os.pistachio.core
+package com.yawl.os.pistachio.identifiers.core
 
 import javax.inject.Inject
 

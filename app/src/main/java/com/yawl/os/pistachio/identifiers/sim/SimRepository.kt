@@ -1,4 +1,4 @@
-package com.yawl.os.pistachio.sim
+package com.yawl.os.pistachio.identifiers.sim
 
 interface SimRepository {
 

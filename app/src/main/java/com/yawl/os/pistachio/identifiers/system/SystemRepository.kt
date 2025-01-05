@@ -1,4 +1,4 @@
-package com.yawl.os.pistachio.system
+package com.yawl.os.pistachio.identifiers.system
 
 interface SystemRepository {
 
