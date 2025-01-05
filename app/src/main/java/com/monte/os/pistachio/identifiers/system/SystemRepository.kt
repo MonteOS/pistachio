@@ -14,6 +14,8 @@ interface SystemRepository {
 
     fun instructionSets(): String
 
+    fun toyboxVersion(): String
+
     fun api(): String
 
     fun device(): String

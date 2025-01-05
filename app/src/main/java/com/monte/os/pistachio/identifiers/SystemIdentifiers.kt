@@ -26,7 +26,8 @@ interface SystemIdentifiers {
                 "Build Date" to repository.buildDate(),
                 "Builder" to repository.builder(),
                 "Architecture" to repository.architecture(),
-                "Instruction sets" to repository.instructionSets()
+                "Instruction sets" to repository.instructionSets(),
+                "Toybox" to repository.toyboxVersion()
             )
         }
     }

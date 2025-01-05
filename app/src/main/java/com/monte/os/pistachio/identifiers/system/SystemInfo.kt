@@ -42,6 +42,14 @@ class SystemInfo @Inject constructor(
         return Build.SUPPORTED_ABIS.toList().toString()
     }
 
+    override fun toyboxVersion(): String {
+        return Shell.cmd("toybox --version")
+            .exec()
+            .out
+            .firstOrNull()
+            .toString()
+    }
+
     override fun api(): String {
         return Build.VERSION.SDK_INT.toString()
     }
