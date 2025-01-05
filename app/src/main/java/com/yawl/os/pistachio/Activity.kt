@@ -8,6 +8,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.yawl.os.pistachio.appscope.AppScopeInfo
 import com.yawl.os.pistachio.core.Property
+import com.yawl.os.pistachio.drm.DrmInfo
 import com.yawl.os.pistachio.screen.ScreenInfo
 import com.yawl.os.pistachio.sim.SimInfo
 import com.yawl.os.pistachio.system.SystemInfo
@@ -23,7 +24,9 @@ class Activity : ComponentActivity() {
                 val screen = ScreenInfo(this)
                 val appScope = AppScopeInfo(this)
                 val sim = SimInfo(this)
+                val drm = DrmInfo()
                 val pairs = listOf(
+                    "DRM ID" to drm.drmId(),
                     "SIM" to sim.sim().toString(),
                     "Android ID" to appScope.androidId(),
                     "Resolution" to screen.resolution(),
