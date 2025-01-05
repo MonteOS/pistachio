@@ -18,7 +18,7 @@ class ScreenInfo @Inject constructor(
             .bounds
         val width = bounds.width()
         val height = bounds.height()
-        return "$height $width"
+        return "$height x $width"
     }
 
     override fun ratio(): String {

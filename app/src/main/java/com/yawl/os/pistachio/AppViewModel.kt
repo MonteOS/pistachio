@@ -49,15 +49,21 @@ class AppViewModel @Inject constructor(
                     )
                 ),
                 HeaderWithPairs(
-                    header = "Device Specifications",
+                    header = "Build Identifiers",
                     data = listOf(
-                        "Resolution" to screen.resolution(),
-                        "Ratio" to screen.ratio(),
-                        "Density" to screen.density(),
-                        "X DPI" to screen.xDPI(),
-                        "Y DPI" to screen.yDPI(),
-                        "Refresh rate" to screen.refreshRate(),
-                        "Modes" to screen.modes(),
+                        "Kernel" to system.kernelVersion(),
+                        "Baseband" to system.baseband(),
+                        "Build name" to system.build(),
+                        "Build Type" to system.buildType(),
+                        "Tags" to system.tags(),
+                        "Incremental" to system.incremental(),
+                        "Description" to system.description(),
+                        "Security Patch" to system.security(),
+                    )
+                ),
+                HeaderWithPairs(
+                    header = "System Identifiers",
+                    data = listOf(
                         "Manufacturer" to system.manufacturer(),
                         "Brand" to system.brand(),
                         "Model" to system.model(),
@@ -67,18 +73,27 @@ class AppViewModel @Inject constructor(
                         "Product" to system.product(),
                         "Board" to system.board(),
                         "Platform" to system.platform(),
-                        "Build" to system.build(),
                         "Java VM" to system.javaVM(),
-                        "Security" to system.security(),
-                        "Kernel" to system.kernelVersion(),
-                        "Baseband" to system.baseband(),
-                        "Build Type" to system.buildType(),
-                        "Tags" to system.tags(),
-                        "Incremental" to system.incremental(),
-                        "Description" to system.description(),
                         "Fingerprint" to system.fingerprint(),
                         "Build Date" to system.buildDate(),
-                        "Builder" to system.builder(),
+                        "Builder" to system.builder()
+                    )
+                ),
+                HeaderWithPairs(
+                    header = "Display Identifiers",
+                    data = listOf(
+                        "Resolution" to screen.resolution(),
+                        "Ratio" to screen.ratio(),
+                        "Density" to screen.density(),
+                        "X DPI" to screen.xDPI(),
+                        "Y DPI" to screen.yDPI(),
+                        "Refresh rate" to screen.refreshRate(),
+                        "Modes" to screen.modes(),
+                    )
+                ),
+                HeaderWithPairs(
+                    header = "Date & Time",
+                    data = listOf(
                         "Language" to system.language(),
                         "Timezone" to system.timezone()
                     )
