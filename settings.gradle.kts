@@ -1,5 +1,9 @@
 @file:Suppress("UnstableApiUsage")
 
+rootProject.name = "Pistachio"
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
     repositories {
         google {
@@ -19,9 +23,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
-rootProject.name = "Pistachio"
+includeBuild("build-logic")
 include(":app")
- 
