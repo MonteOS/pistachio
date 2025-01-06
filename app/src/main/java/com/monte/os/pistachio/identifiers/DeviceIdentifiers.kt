@@ -14,6 +14,7 @@ interface DeviceIdentifiers {
         override fun list(): List<Pair<String, String>> {
             return listOf(
                 "Android ID" to appScope.androidId(),
+                "App installation date" to appScope.installationDate()
             )
         }
     }
