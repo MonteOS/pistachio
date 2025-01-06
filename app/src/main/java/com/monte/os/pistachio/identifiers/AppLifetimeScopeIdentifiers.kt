@@ -1,20 +1,21 @@
 package com.monte.os.pistachio.identifiers
 
 import com.monte.os.pistachio.identifiers.appscope.AppScopeRepository
-import com.monte.os.pistachio.identifiers.drm.DrmRepository
 import javax.inject.Inject
 
-interface DeviceIdentifiers {
+interface AppLifetimeScopeIdentifiers {
 
     fun list(): List<Pair<String, String>>
 
     class Base @Inject constructor(
-        private val appScope: AppScopeRepository,
-    ): DeviceIdentifiers {
+        private val repository: AppScopeRepository
+    ): AppLifetimeScopeIdentifiers {
         override fun list(): List<Pair<String, String>> {
             return listOf(
-                "Android ID" to appScope.androidId(),
+                "App Installation Time" to repository.installationDate(),
+                "App ID" to repository.appId(),
             )
         }
     }
+
 }

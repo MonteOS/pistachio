@@ -1,5 +1,6 @@
 package com.monte.os.pistachio.di
 
+import com.monte.os.pistachio.identifiers.AppLifetimeScopeIdentifiers
 import com.monte.os.pistachio.identifiers.BuildIdentifiers
 import com.monte.os.pistachio.identifiers.DeviceIdentifiers
 import com.monte.os.pistachio.identifiers.DisplayIdentifiers
@@ -77,6 +78,15 @@ internal object Identifiers {
         repository: DrmRepository
     ): DrmIdentifiers {
         return DrmIdentifiers.Base(repository)
+    }
+
+
+    @Provides
+    @Singleton
+    internal fun provideAppLifetimeIdentifiers(
+        repository: AppScopeRepository
+    ): AppLifetimeScopeIdentifiers {
+        return AppLifetimeScopeIdentifiers.Base(repository)
     }
 
 }

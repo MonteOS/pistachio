@@ -1,5 +1,6 @@
 package com.monte.os.pistachio
 
+import com.monte.os.pistachio.identifiers.AppLifetimeScopeIdentifiers
 import com.monte.os.pistachio.identifiers.BuildIdentifiers
 import com.monte.os.pistachio.identifiers.DeviceIdentifiers
 import com.monte.os.pistachio.identifiers.DisplayIdentifiers
@@ -23,6 +24,7 @@ class AppViewModel @Inject constructor(
     private val sim: SimIdentifiers,
     private val display: DisplayIdentifiers,
     private val timeAndDate: TimeAndDateIdentifiers,
+    private val appScope: AppLifetimeScopeIdentifiers,
     dispatchersList: DispatchersList
 ) : BaseViewModel(dispatchersList) {
 
@@ -36,6 +38,10 @@ class AppViewModel @Inject constructor(
         async {
             state.value = State.Success(
                 data = listOf(
+                    HeaderWithPairs(
+                        header = "App Lifetime",
+                        data = appScope.list()
+                    ),
                     HeaderWithPairs(
                         header = "Device",
                         data = device.list()
