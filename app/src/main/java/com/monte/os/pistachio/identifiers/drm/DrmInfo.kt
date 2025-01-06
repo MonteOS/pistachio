@@ -1,7 +1,7 @@
 package com.monte.os.pistachio.identifiers.drm
 
 import android.media.MediaDrm
-import android.util.Base64
+import java.security.MessageDigest
 import java.util.UUID
 import javax.inject.Inject
 
@@ -29,12 +29,14 @@ class DrmInfo @Inject constructor(
     }
 
     override fun drmId(): String {
-        return Base64.encodeToString(
-            widevine.getPropertyByteArray(
-                MediaDrm.PROPERTY_DEVICE_UNIQUE_ID
-            ),
-            Base64.DEFAULT
+        val deviceUniqueId = widevine.getPropertyByteArray(
+            MediaDrm.PROPERTY_DEVICE_UNIQUE_ID
         )
+        val messageDigest = MessageDigest.getInstance("SHA-256")
+        messageDigest.update(deviceUniqueId)
+        return messageDigest.digest().joinToString("") {
+            java.lang.String.format("%02x", it)
+        }
     }
 
     companion object {
