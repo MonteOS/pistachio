@@ -23,6 +23,10 @@ class AppScopeInfo @Inject constructor(
             .format(Date(timestamp))
     }
 
+    override fun appId(): String {
+        return GetUser.username
+    }
+
     @SuppressLint("HardwareIds")
     override fun androidId(): String {
         return Settings.Secure.getString(
