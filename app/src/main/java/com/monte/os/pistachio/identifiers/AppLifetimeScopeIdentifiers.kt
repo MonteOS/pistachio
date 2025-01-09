@@ -13,7 +13,7 @@ interface AppLifetimeScopeIdentifiers {
         override fun list(): List<Pair<String, String>> {
             return listOf(
                 "App Installation Time" to repository.installationDate(),
-                "App ID" to repository.appId(),
+                "App User ID" to repository.appId(),
             )
         }
     }

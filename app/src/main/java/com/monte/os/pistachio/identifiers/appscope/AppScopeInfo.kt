@@ -24,7 +24,7 @@ class AppScopeInfo @Inject constructor(
     }
 
     override fun appId(): String {
-        return Shell.cmd("id -un")
+        return Shell.cmd("id -u")
             .exec()
             .out
             .firstOrNull() ?: ""
