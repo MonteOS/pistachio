@@ -17,13 +17,6 @@ android {
         }
     }
 
-    externalNativeBuild {
-        cmake {
-            version = "3.10.2"
-            path("src/main/cpp/CMakeLists.txt")
-        }
-    }
-
     buildTypes {
         debug {
             isMinifyEnabled = false
