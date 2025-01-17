@@ -213,4 +213,8 @@ class SystemInfo @Inject constructor(
         cursor?.close()
         return settings
     }
+
+    override fun allProperties(): List<String> {
+        return property.all()
+    }
 }

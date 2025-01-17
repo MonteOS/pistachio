@@ -61,4 +61,6 @@ interface SystemRepository {
     fun globalSettings(): List<SystemSetting>
 
     fun secureSettings(): List<SystemSetting>
+
+    fun allProperties(): List<String>
 }
