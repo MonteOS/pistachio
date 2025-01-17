@@ -160,11 +160,13 @@ class SystemInfo @Inject constructor(
         )
         while (cursor?.moveToNext() == true) {
             val new = SystemSetting(
-                id = cursor.getString(0) ?: "",
-                name = cursor.getString(1) ?: "",
+                id = cursor.getString(0),
+                name = cursor.getString(1),
                 value = cursor.getString(2) ?: ""
             )
-            settings.add(new)
+            if (new.value.isNotEmpty()) {
+                settings.add(new)
+            }
         }
         cursor?.close()
         return settings
@@ -179,11 +181,13 @@ class SystemInfo @Inject constructor(
         )
         while (cursor?.moveToNext() == true) {
             val new = SystemSetting(
-                id = cursor.getString(0) ?: "",
-                name = cursor.getString(1) ?: "",
+                id = cursor.getString(0),
+                name = cursor.getString(1),
                 value = cursor.getString(2) ?: ""
             )
-            settings.add(new)
+            if (new.value.isNotEmpty()) {
+                settings.add(new)
+            }
         }
         cursor?.close()
         return settings
