@@ -42,9 +42,10 @@ internal object AppModule {
     @Provides
     @Singleton
     internal fun providesScreenRepository(
-        @ApplicationContext context: Context
+        @ApplicationContext context: Context,
+        property: Property
     ): ScreenRepository {
-        return ScreenInfo(context)
+        return ScreenInfo(context, property)
     }
 
 

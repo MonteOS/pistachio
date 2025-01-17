@@ -22,4 +22,6 @@ interface ScreenRepository {
 
     fun modes(): String
 
+    fun egl(): String
+
 }

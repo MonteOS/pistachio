@@ -2,11 +2,13 @@ package com.monte.os.pistachio.identifiers.screen
 
 import android.content.Context
 import android.view.WindowManager
+import com.monte.os.pistachio.identifiers.core.Property
 import javax.inject.Inject
 import kotlin.math.roundToInt
 
 class ScreenInfo @Inject constructor(
-    private val context: Context
+    private val context: Context,
+    private val property: Property
 ): ScreenRepository {
 
     override fun resolution(): String {
@@ -58,5 +60,9 @@ class ScreenInfo @Inject constructor(
 
     override fun modes(): String {
         return ""
+    }
+
+    override fun egl(): String {
+        return property.get("ro.hardware.egl")
     }
 }

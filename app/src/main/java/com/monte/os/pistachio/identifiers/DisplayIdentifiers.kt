@@ -16,7 +16,8 @@ interface DisplayIdentifiers {
                 "Density" to repository.density(),
                 "X DPI" to repository.xDPI(),
                 "Y DPI" to repository.yDPI(),
-                "Refresh rate" to repository.refreshRate()
+                "Refresh rate" to repository.refreshRate(),
+                "Embedded-System Graphics Library" to repository.egl()
             )
         }
     }
