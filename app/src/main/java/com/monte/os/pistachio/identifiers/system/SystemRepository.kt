@@ -53,4 +53,6 @@ interface SystemRepository {
     fun language(): String
 
     fun timezone(): String
+
+    fun systemServices(): List<String>
 }

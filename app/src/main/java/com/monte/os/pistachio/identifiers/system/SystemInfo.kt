@@ -143,4 +143,8 @@ class SystemInfo @Inject constructor(
         val displayName = TimeZone.getDefault().displayName
         return "$displayName ($localTime)"
     }
+
+    override fun systemServices(): List<String> {
+        return Shell.cmd("service list").exec().out
+    }
 }
