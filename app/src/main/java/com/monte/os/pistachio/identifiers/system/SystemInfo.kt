@@ -192,4 +192,25 @@ class SystemInfo @Inject constructor(
         cursor?.close()
         return settings
     }
+
+    override fun secureSettings(): List<SystemSetting> {
+        val settings = mutableListOf<SystemSetting>()
+        val uri = Uri.parse("content://settings/secure")
+        val cursor = context.contentResolver.query(
+            uri, null, null,
+            null, null
+        )
+        while (cursor?.moveToNext() == true) {
+            val new = SystemSetting(
+                id = cursor.getString(0),
+                name = cursor.getString(1),
+                value = cursor.getString(2) ?: ""
+            )
+            if (new.value.isNotEmpty()) {
+                settings.add(new)
+            }
+        }
+        cursor?.close()
+        return settings
+    }
 }
