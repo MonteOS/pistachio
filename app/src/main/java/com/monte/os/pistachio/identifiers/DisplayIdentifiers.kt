@@ -13,12 +13,10 @@ interface DisplayIdentifiers {
         override fun list(): List<Pair<String, String>> {
             return listOf(
                 "Resolution" to repository.resolution(),
-                "Ratio" to repository.ratio(),
                 "Density" to repository.density(),
                 "X DPI" to repository.xDPI(),
                 "Y DPI" to repository.yDPI(),
-                "Refresh rate" to repository.refreshRate(),
-                "Modes" to repository.modes(),
+                "Refresh rate" to repository.refreshRate()
             )
         }
     }
