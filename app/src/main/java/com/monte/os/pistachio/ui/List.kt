@@ -134,28 +134,6 @@ fun ListWithHeaders(
     }
 }
 
-interface Element {
-
-    val name: String
-
-    fun data(): String
-
-    data class StringBased(
-        override val name: String,
-        private val value: String
-    ) : Element {
-        override fun data() = value
-    }
-
-    data class ListBased(
-        override val name: String,
-        private val values: List<String>
-    ) : Element {
-        override fun data() = values
-            .joinToString("\n")
-    }
-}
-
 data class HeaderWithPairs(
     val header: String,
     val data: List<Pair<String, String>>
