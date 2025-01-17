@@ -31,7 +31,7 @@ interface SystemIdentifiers {
                 "Services List" to repository.systemServices().joinToString("\n"),
                 "System Settings" to repository.systemSettings().joinToString("\n"),
                 "Global Settings" to repository.globalSettings().joinToString("\n"),
-                "Secure Settings" to repository.globalSettings().joinToString("\n")
+                "Secure Settings" to repository.secureSettings().joinToString("\n")
             )
         }
     }

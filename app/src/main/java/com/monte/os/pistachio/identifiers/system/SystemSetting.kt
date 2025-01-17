@@ -6,6 +6,6 @@ data class SystemSetting(
     val value: String
 ) {
     override fun toString(): String {
-        return "ID: $id, Name: $name, Value: $value"
+        return "$name : $value"
     }
 }
