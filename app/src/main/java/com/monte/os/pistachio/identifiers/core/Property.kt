@@ -1,5 +1,6 @@
 package com.monte.os.pistachio.identifiers.core
 
+import com.topjohnwu.superuser.Shell
 import javax.inject.Inject
 
 interface PropertyRepository {
@@ -9,14 +10,10 @@ interface PropertyRepository {
 class Property @Inject constructor(
 ) : PropertyRepository {
     override fun get(property: String): String {
-        return runCatching {
-            ProcessBuilder(PATH, property)
-                .redirectErrorStream(true)
-                .start()
-                .inputStream
-                .bufferedReader()
-                .use { it.readLine() }
-        }.getOrElse { EMPTY }
+        return Shell.cmd("$PATH $property")
+            .exec()
+            .out
+            .firstOrNull() ?: EMPTY
     }
 
     companion object {
