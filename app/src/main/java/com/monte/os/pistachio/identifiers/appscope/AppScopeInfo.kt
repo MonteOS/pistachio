@@ -30,6 +30,13 @@ class AppScopeInfo @Inject constructor(
             .firstOrNull() ?: ""
     }
 
+    override fun fullAppId(): String {
+        return Shell.cmd("id")
+            .exec()
+            .out
+            .firstOrNull() ?: ""
+    }
+
     @SuppressLint("HardwareIds")
     override fun androidId(): String {
         return Settings.Secure.getString(

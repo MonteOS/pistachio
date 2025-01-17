@@ -6,6 +6,8 @@ interface AppScopeRepository {
 
     fun appId(): String
 
+    fun fullAppId(): String
+
     fun androidId(): String
 
 }

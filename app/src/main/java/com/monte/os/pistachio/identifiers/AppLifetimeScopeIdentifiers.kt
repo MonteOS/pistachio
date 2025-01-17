@@ -14,6 +14,7 @@ interface AppLifetimeScopeIdentifiers {
             return listOf(
                 "App Installation Time" to repository.installationDate(),
                 "App User ID" to repository.appId(),
+                "Current process IDs" to repository.fullAppId()
             )
         }
     }
