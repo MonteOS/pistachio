@@ -33,9 +33,10 @@ internal object AppModule {
     @Provides
     @Singleton
     internal fun providesSystemRepository(
+        @ApplicationContext context: Context,
         property: Property
     ): SystemRepository {
-        return SystemInfo(property)
+        return SystemInfo(context, property)
     }
 
     @Provides

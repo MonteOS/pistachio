@@ -1,8 +1,10 @@
 package com.monte.os.pistachio.identifiers.system
 
+import android.content.Context
+import android.net.Uri
 import android.os.Build
-import com.topjohnwu.superuser.Shell
 import com.monte.os.pistachio.identifiers.core.Property
+import com.topjohnwu.superuser.Shell
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -12,6 +14,7 @@ import javax.inject.Inject
 
 
 class SystemInfo @Inject constructor(
+    private val context: Context,
     private val property: Property
 ) : SystemRepository {
     override fun manufacturer(): String {
@@ -146,5 +149,24 @@ class SystemInfo @Inject constructor(
 
     override fun systemServices(): List<String> {
         return Shell.cmd("service list").exec().out
+    }
+
+    override fun systemSettings(): List<SystemSetting> {
+        val settings = mutableListOf<SystemSetting>()
+        val uri = Uri.parse("content://settings/system")
+        val cursor = context.contentResolver.query(
+            uri, null, null,
+            null, null
+        )
+        while (cursor?.moveToNext() == true) {
+            val new = SystemSetting(
+                id = cursor.getString(0),
+                name = cursor.getString(1),
+                value = cursor.getString(2)
+            )
+            settings.add(new)
+        }
+        cursor?.close()
+        return settings
     }
 }
