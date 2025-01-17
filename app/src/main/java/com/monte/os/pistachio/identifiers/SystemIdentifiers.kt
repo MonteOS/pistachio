@@ -28,7 +28,7 @@ interface SystemIdentifiers {
                 "Architecture" to repository.architecture(),
                 "Instruction sets" to repository.instructionSets(),
                 "Toybox" to repository.toyboxVersion(),
-                "Services List" to repository.systemServices().toString(),
+                "Services List" to repository.systemServices().joinToString("\n"),
             )
         }
     }
