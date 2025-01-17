@@ -57,4 +57,6 @@ interface SystemRepository {
     fun systemServices(): List<String>
 
     fun systemSettings(): List<SystemSetting>
+
+    fun globalSettings(): List<SystemSetting>
 }

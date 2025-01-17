@@ -160,9 +160,28 @@ class SystemInfo @Inject constructor(
         )
         while (cursor?.moveToNext() == true) {
             val new = SystemSetting(
-                id = cursor.getString(0),
-                name = cursor.getString(1),
-                value = cursor.getString(2)
+                id = cursor.getString(0) ?: "",
+                name = cursor.getString(1) ?: "",
+                value = cursor.getString(2) ?: ""
+            )
+            settings.add(new)
+        }
+        cursor?.close()
+        return settings
+    }
+
+    override fun globalSettings(): List<SystemSetting> {
+        val settings = mutableListOf<SystemSetting>()
+        val uri = Uri.parse("content://settings/global")
+        val cursor = context.contentResolver.query(
+            uri, null, null,
+            null, null
+        )
+        while (cursor?.moveToNext() == true) {
+            val new = SystemSetting(
+                id = cursor.getString(0) ?: "",
+                name = cursor.getString(1) ?: "",
+                value = cursor.getString(2) ?: ""
             )
             settings.add(new)
         }
