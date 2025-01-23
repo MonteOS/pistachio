@@ -1,9 +1,7 @@
 package com.monte.os.pistachio.main.component.item
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -38,6 +36,7 @@ fun ItemsDialog(
             }
             onDismiss()
         },
+        containerColor = MaterialTheme.colorScheme.background,
         sheetState = bottomSheetState,
         modifier = modifier
     ) {
@@ -45,17 +44,30 @@ fun ItemsDialog(
             modifier = Modifier
                 .fillMaxWidth()
         ) {
-            SingleText(
-                text = JustText(
-                    text = title,
-                    style = MaterialTheme.typography.titleSmall,
-                    color = MaterialTheme.colorScheme.onBackground
-                )
+            Header(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(12.dp),
+                title = title
             )
-            Spacer(modifier = Modifier.height(16.dp))
             ItemsList(
                 list = items
             )
         }
     }
+}
+
+@Composable
+fun Header(
+    title: String,
+    modifier: Modifier = Modifier
+) {
+    SingleText(
+        modifier = modifier,
+        text = JustText(
+            text = title,
+            style = MaterialTheme.typography.headlineMedium,
+            color = MaterialTheme.colorScheme.primary
+        )
+    )
 }
