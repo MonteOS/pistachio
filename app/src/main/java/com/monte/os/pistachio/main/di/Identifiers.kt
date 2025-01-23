@@ -1,6 +1,6 @@
 package com.monte.os.pistachio.main.di
 
-import com.monte.os.pistachio.core.Phone
+import com.monte.os.pistachio.Phone
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -3,7 +3,7 @@ package com.monte.os.pistachio.main
 import androidx.lifecycle.viewModelScope
 import com.monte.os.pistachio.core.BaseViewModel
 import com.monte.os.pistachio.core.DispatchersList
-import com.monte.os.pistachio.core.Phone
+import com.monte.os.pistachio.Phone
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn

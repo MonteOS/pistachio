@@ -1,6 +1,5 @@
-package com.monte.os.pistachio.core
+package com.monte.os.pistachio
 
-import com.monte.os.pistachio.R
 import com.monte.os.pistachio.main.component.section.Section
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
