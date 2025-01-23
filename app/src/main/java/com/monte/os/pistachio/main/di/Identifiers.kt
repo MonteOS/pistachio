@@ -4,6 +4,7 @@ import android.content.ContentResolver
 import android.content.Context
 import com.monte.os.identifier.drm.DeviceDrmModule
 import com.monte.os.identifier.props.DeviceProperties
+import com.monte.os.identifier.scope.ApplicationScope
 import com.monte.os.identifier.settings.GlobalDeviceSettings
 import com.monte.os.identifier.settings.SecureDeviceSettings
 import com.monte.os.identifier.settings.SystemDeviceSettings
@@ -40,7 +41,10 @@ internal object Identifiers {
             deviceInUseSimCards = DeviceInUseSimCards(
                 context = context
             ),
-            deviceDrmModule = DeviceDrmModule()
+            deviceDrmModule = DeviceDrmModule(),
+            applicationScope = ApplicationScope(
+                context = context
+            )
         )
     }
 
