@@ -1,4 +1,4 @@
-package com.monte.os.pistachio
+package com.monte.os.pistachio.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -14,13 +14,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.monte.os.pistachio.ui.ListWithHeaders
+import com.monte.os.pistachio.main.ui.ListWithHeaders
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class Activity : ComponentActivity() {
+class MainActivity : ComponentActivity() {
 
-    private val viewModel: AppViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

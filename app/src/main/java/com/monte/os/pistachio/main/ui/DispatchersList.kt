@@ -1,4 +1,4 @@
-package com.monte.os.pistachio.ui
+package com.monte.os.pistachio.main.ui
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

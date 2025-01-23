@@ -1,4 +1,4 @@
-package com.monte.os.pistachio.di
+package com.monte.os.pistachio.main.di
 
 import android.content.Context
 import com.monte.os.identifier.appscope.AppScopeInfo

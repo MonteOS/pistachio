@@ -1,4 +1,4 @@
-package com.monte.os.pistachio.di
+package com.monte.os.pistachio.main.di
 
 import com.monte.os.identifier.AppLifetimeScopeIdentifiers
 import com.monte.os.identifier.BuildIdentifiers

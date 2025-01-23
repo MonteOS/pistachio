@@ -1,6 +1,6 @@
-package com.monte.os.pistachio.di
+package com.monte.os.pistachio.main.di
 
-import com.monte.os.pistachio.ui.DispatchersList
+import com.monte.os.pistachio.main.ui.DispatchersList
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

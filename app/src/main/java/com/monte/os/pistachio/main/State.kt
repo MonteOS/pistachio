@@ -1,6 +1,6 @@
-package com.monte.os.pistachio
+package com.monte.os.pistachio.main
 
-import com.monte.os.pistachio.ui.HeaderWithPairs
+import com.monte.os.pistachio.main.ui.HeaderWithPairs
 
 interface State {
 

@@ -1,4 +1,4 @@
-package com.monte.os.pistachio
+package com.monte.os.pistachio.main
 
 import com.monte.os.identifier.AppLifetimeScopeIdentifiers
 import com.monte.os.identifier.BuildIdentifiers
@@ -8,15 +8,15 @@ import com.monte.os.identifier.DrmIdentifiers
 import com.monte.os.identifier.SimIdentifiers
 import com.monte.os.identifier.SystemIdentifiers
 import com.monte.os.identifier.TimeAndDateIdentifiers
-import com.monte.os.pistachio.ui.BaseViewModel
-import com.monte.os.pistachio.ui.DispatchersList
-import com.monte.os.pistachio.ui.HeaderWithPairs
+import com.monte.os.pistachio.main.ui.BaseViewModel
+import com.monte.os.pistachio.main.ui.DispatchersList
+import com.monte.os.pistachio.main.ui.HeaderWithPairs
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class AppViewModel @Inject constructor(
+class MainViewModel @Inject constructor(
     private val system: SystemIdentifiers,
     private val drm: DrmIdentifiers,
     private val build: BuildIdentifiers,
@@ -39,7 +39,7 @@ class AppViewModel @Inject constructor(
             state.value = State.Success(
                 data = listOf(
                     HeaderWithPairs(
-                        header = "App Lifetime",
+                        header = "Pistachio Lifetime",
                         data = appScope.list()
                     ),
                     HeaderWithPairs(

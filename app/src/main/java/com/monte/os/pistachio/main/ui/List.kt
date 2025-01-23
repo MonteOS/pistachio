@@ -1,4 +1,4 @@
-package com.monte.os.pistachio.ui
+package com.monte.os.pistachio.main.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
