@@ -20,6 +20,11 @@ class PhoneIdentifiersImpl @Inject constructor(
     override fun data() = result
 
     override suspend fun reload() {
-        result.value = listOf()
+        result.value = listOf(
+            Section(
+                name = "Properties",
+                items = Properties.all
+            )
+        )
     }
 }
