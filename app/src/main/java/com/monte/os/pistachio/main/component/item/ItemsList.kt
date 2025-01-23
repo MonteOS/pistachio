@@ -14,9 +14,7 @@ fun ItemsList(
         modifier = modifier
     ) {
         list.forEach { item ->
-            item(
-                key = { item.name }
-            ) {
+            item {
                 ItemUi(
                     name = item.name,
                     value = item.value

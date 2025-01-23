@@ -1,5 +1,6 @@
 package com.monte.os.pistachio
 
+import com.monte.os.identifier.Properties
 import com.monte.os.pistachio.main.component.section.Section
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,7 +23,7 @@ interface Phone {
                 title = "Props",
                 description = "Android property list",
                 icon = R.drawable.ic_perm_device_information,
-                items = emptyList()
+                items = Properties.all
             )
             result.value = listOf(
                 props,
