@@ -1,5 +1,6 @@
 package com.monte.os.pistachio.core
 
+import com.monte.os.pistachio.R
 import com.monte.os.pistachio.main.component.section.Section
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,7 +19,15 @@ interface Phone {
         override fun identifiers() = result
 
         override suspend fun reload() {
-            result.value = listOf()
+            val props = Section(
+                title = "Props",
+                description = "Android property list",
+                icon = R.drawable.ic_perm_device_information,
+                items = emptyList()
+            )
+            result.value = listOf(
+                props,
+            )
         }
     }
 }
