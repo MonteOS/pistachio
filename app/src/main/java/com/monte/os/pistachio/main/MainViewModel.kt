@@ -8,8 +8,8 @@ import com.monte.os.identifier.DrmIdentifiers
 import com.monte.os.identifier.SimIdentifiers
 import com.monte.os.identifier.SystemIdentifiers
 import com.monte.os.identifier.TimeAndDateIdentifiers
-import com.monte.os.pistachio.main.ui.BaseViewModel
-import com.monte.os.pistachio.main.ui.DispatchersList
+import com.monte.os.pistachio.core.BaseViewModel
+import com.monte.os.pistachio.core.DispatchersList
 import com.monte.os.pistachio.main.ui.HeaderWithPairs
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

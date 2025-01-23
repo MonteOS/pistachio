@@ -1,4 +1,4 @@
-package com.monte.os.pistachio.main.ui
+package com.monte.os.pistachio.core
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -25,15 +25,4 @@ abstract class BaseViewModel(
     ): Job = viewModelScope.launch(dispatchers.io()) {
         block.invoke()
     }
-}
-
-interface Handle {
-    fun <T : Any> async(
-        block: suspend () -> T,
-        ui: (T) -> Unit
-    ): Job
-
-    fun <T : Any> async(
-        block: suspend () -> T,
-    ): Job
 }
