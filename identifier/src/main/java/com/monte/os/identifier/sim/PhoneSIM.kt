@@ -1,12 +1,6 @@
-package com.monte.os.identifier.data.sim
+package com.monte.os.identifier.sim
 
-interface SimRepository {
-
-    fun sim(): SimData
-
-}
-
-data class SimData(
+data class PhoneSIM(
     val operatorName: String,
     val operatorCode: String,
     val country: String,

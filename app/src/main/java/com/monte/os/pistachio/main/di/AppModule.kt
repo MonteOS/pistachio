@@ -9,8 +9,8 @@ import com.monte.os.identifier.data.drm.DrmInfo
 import com.monte.os.identifier.data.drm.DrmRepository
 import com.monte.os.identifier.data.screen.ScreenInfo
 import com.monte.os.identifier.data.screen.ScreenRepository
-import com.monte.os.identifier.data.sim.SimInfo
-import com.monte.os.identifier.data.sim.SimRepository
+import com.monte.os.identifier.sim.SimInfo
+import com.monte.os.identifier.sim.ProvideSIM
 import com.monte.os.identifier.data.system.SystemInfo
 import com.monte.os.identifier.data.system.SystemRepository
 import dagger.Module
@@ -53,7 +53,7 @@ internal object AppModule {
     @Singleton
     internal fun providesSimRepository(
         @ApplicationContext context: Context
-    ): SimRepository {
+    ): ProvideSIM {
         return SimInfo(context)
     }
 

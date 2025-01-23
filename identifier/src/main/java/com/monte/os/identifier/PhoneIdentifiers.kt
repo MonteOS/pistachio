@@ -1,6 +1,5 @@
 package com.monte.os.identifier
 
-import com.monte.os.identifier.data.SystemIdentifiers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
@@ -12,7 +11,6 @@ interface PhoneIdentifiers {
 }
 
 class PhoneIdentifiersImpl @Inject constructor(
-    private val system: SystemIdentifiers
 ) : PhoneIdentifiers {
 
     private val result = MutableStateFlow<List<Section>>(
@@ -22,9 +20,6 @@ class PhoneIdentifiersImpl @Inject constructor(
     override fun data() = result
 
     override suspend fun reload() {
-        result.value = listOf(Section(
-            name = "System",
-            items = system.list()
-        ))
+        result.value = listOf()
     }
 }
