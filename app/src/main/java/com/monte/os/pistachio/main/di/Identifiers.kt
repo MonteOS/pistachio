@@ -1,5 +1,7 @@
 package com.monte.os.pistachio.main.di
 
+import android.content.ContentResolver
+import com.monte.os.identifier.GlobalDeviceSettings
 import com.monte.os.pistachio.Phone
 import dagger.Module
 import dagger.Provides
@@ -14,8 +16,13 @@ internal object Identifiers {
     @Provides
     @Singleton
     internal fun providePhoneIdentifiers(
+        contentResolver: ContentResolver
     ): Phone {
-        return Phone.Base()
+        return Phone.Base(
+            globalDeviceSettings = GlobalDeviceSettings(
+                contentResolver = contentResolver
+            )
+        )
     }
 
 }
