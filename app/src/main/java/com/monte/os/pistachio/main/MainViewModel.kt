@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    identifiers: PhoneIdentifiers,
+    private val identifiers: PhoneIdentifiers,
     dispatchersList: DispatchersList
 ) : BaseViewModel(dispatchersList) {
 
@@ -22,4 +22,6 @@ class MainViewModel @Inject constructor(
             started = SharingStarted.WhileSubscribed(),
             initialValue = emptyList()
         )
+
+    fun reload() = async { identifiers.reload() }
 }

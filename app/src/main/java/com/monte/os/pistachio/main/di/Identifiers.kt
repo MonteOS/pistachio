@@ -28,8 +28,9 @@ internal object Identifiers {
     @Provides
     @Singleton
     internal fun providePhoneIdentifiers(
+        systemIdentifiers: SystemIdentifiers
     ): PhoneIdentifiers {
-        return PhoneIdentifiersImpl()
+        return PhoneIdentifiersImpl(systemIdentifiers)
     }
 
     @Provides
