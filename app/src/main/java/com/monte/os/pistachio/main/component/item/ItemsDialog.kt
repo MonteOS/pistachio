@@ -66,7 +66,7 @@ fun Header(
         modifier = modifier,
         text = JustText(
             text = title,
-            style = MaterialTheme.typography.headlineMedium,
+            style = MaterialTheme.typography.headlineSmall,
             color = MaterialTheme.colorScheme.primary
         )
     )
