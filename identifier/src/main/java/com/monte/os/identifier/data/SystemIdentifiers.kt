@@ -1,6 +1,8 @@
 package com.monte.os.identifier.data
 
 import com.monte.os.identifier.Item
+import com.monte.os.identifier.LongListItem
+import com.monte.os.identifier.SimpleItem
 import com.monte.os.identifier.data.system.SystemRepository
 import javax.inject.Inject
 
@@ -13,28 +15,27 @@ interface SystemIdentifiers {
     ) : SystemIdentifiers {
         override fun list(): List<Item> {
             return listOf(
-                Item(name = "Manufacturer", repository.manufacturer())
-//                "Manufacturer" to repository.manufacturer(),
-//                "Brand" to repository.brand(),
-//                "Model" to repository.model(),
-//                "Android Version" to repository.androidVersion(),
-//                "API" to repository.api(),
-//                "Device" to repository.device(),
-//                "Product" to repository.product(),
-//                "Board" to repository.board(),
-//                "Platform" to repository.platform(),
-//                "Java VM" to repository.javaVM(),
-//                "Fingerprint" to repository.fingerprint(),
-//                "Build Date" to repository.buildDate(),
-//                "Builder" to repository.builder(),
-//                "Architecture" to repository.architecture(),
-//                "Instruction sets" to repository.instructionSets(),
-//                "Toybox" to repository.toyboxVersion(),
-//                "Services List" to repository.systemServices().joinToString("\n"),
-//                "System Settings" to repository.systemSettings().joinToString("\n"),
-//                "Global Settings" to repository.globalSettings().joinToString("\n"),
-//                "Secure Settings" to repository.secureSettings().joinToString("\n"),
-//                "Properties" to repository.allProperties().joinToString("\n")
+                SimpleItem("Manufacturer", repository.manufacturer()),
+                SimpleItem("Brand", repository.brand()),
+                SimpleItem("Model", repository.model()),
+                SimpleItem("Android Version", repository.androidVersion()),
+                SimpleItem("API", repository.api()),
+                SimpleItem("Device", repository.device()),
+                SimpleItem("Product", repository.product()),
+                SimpleItem("Board", repository.board()),
+                SimpleItem("Platform", repository.platform()),
+                SimpleItem("Java VM", repository.javaVM()),
+                SimpleItem("Fingerprint", repository.fingerprint()),
+                SimpleItem("Build Date", repository.buildDate()),
+                SimpleItem("Builder", repository.builder()),
+                SimpleItem("Architecture", repository.architecture()),
+                SimpleItem("Instruction sets", repository.instructionSets()),
+                SimpleItem("Toybox", repository.toyboxVersion()),
+//                LongListItem("Services List", repository.systemServices()),
+//                LongListItem("System Settings", repository.systemSettings()),
+//                LongListItem("Global Settings", repository.globalSettings()),
+//                LongListItem("Secure Settings", repository.secureSettings()),
+//                LongListItem("Properties", repository.allProperties())
             )
         }
     }

@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.monte.os.identifier.Section
+import com.monte.os.identifier.SimpleItem
 
 @Composable
 fun List(
@@ -32,14 +33,18 @@ fun List(
                 } else {
                     MaterialTheme.colorScheme.surface
                 }
-                Item(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .background(backgroundColor)
-                        .padding(16.dp),
-                    name = item.name,
-                    value = item.value
-                )
+                when (item) {
+                    is SimpleItem -> {
+                        Item(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(backgroundColor)
+                                .padding(16.dp),
+                            name = item.name,
+                            value = item.value
+                        )
+                    }
+                }
             }
         }
     }
