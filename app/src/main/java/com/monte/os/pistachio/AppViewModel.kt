@@ -1,13 +1,13 @@
 package com.monte.os.pistachio
 
-import com.monte.os.pistachio.identifiers.AppLifetimeScopeIdentifiers
-import com.monte.os.pistachio.identifiers.BuildIdentifiers
-import com.monte.os.pistachio.identifiers.DeviceIdentifiers
-import com.monte.os.pistachio.identifiers.DisplayIdentifiers
-import com.monte.os.pistachio.identifiers.DrmIdentifiers
-import com.monte.os.pistachio.identifiers.SimIdentifiers
-import com.monte.os.pistachio.identifiers.SystemIdentifiers
-import com.monte.os.pistachio.identifiers.TimeAndDateIdentifiers
+import com.monte.os.identifier.AppLifetimeScopeIdentifiers
+import com.monte.os.identifier.BuildIdentifiers
+import com.monte.os.identifier.DeviceIdentifiers
+import com.monte.os.identifier.DisplayIdentifiers
+import com.monte.os.identifier.DrmIdentifiers
+import com.monte.os.identifier.SimIdentifiers
+import com.monte.os.identifier.SystemIdentifiers
+import com.monte.os.identifier.TimeAndDateIdentifiers
 import com.monte.os.pistachio.ui.BaseViewModel
 import com.monte.os.pistachio.ui.DispatchersList
 import com.monte.os.pistachio.ui.HeaderWithPairs
