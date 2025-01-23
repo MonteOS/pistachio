@@ -1,16 +1,18 @@
-package com.monte.os.identifier
+package com.monte.os.identifier.settings
 
 import android.content.ContentResolver
 import android.net.Uri
-import javax.inject.Inject
+import com.monte.os.identifier.Item
+import com.monte.os.identifier.ProvideIdentifiers
 
-class GlobalDeviceSettings @Inject constructor(
-    private val contentResolver: ContentResolver
+abstract class AbstractDeviceSettings(
+    private val contentResolver: ContentResolver,
+    private val uri: String
 ) : ProvideIdentifiers {
     override fun provide(): List<Item> {
         val items = mutableListOf<Item>()
         val cursor = contentResolver.query(
-            Uri.parse(URI), null, null,
+            Uri.parse(uri), null, null,
             null, null
         )
         while (cursor?.moveToNext() == true) {
@@ -22,9 +24,5 @@ class GlobalDeviceSettings @Inject constructor(
         }
         cursor?.close()
         return items
-    }
-
-    companion object {
-        private const val URI = "content://settings/global"
     }
 }

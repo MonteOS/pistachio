@@ -1,7 +1,7 @@
 package com.monte.os.pistachio
 
-import com.monte.os.identifier.GlobalDeviceSettings
 import com.monte.os.identifier.Properties
+import com.monte.os.identifier.ProvideIdentifiers
 import com.monte.os.pistachio.main.component.section.Section
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,7 +13,9 @@ interface Phone {
     suspend fun reload()
 
     class Base @Inject constructor(
-        private val globalDeviceSettings: GlobalDeviceSettings
+        private val globalDeviceSettings: ProvideIdentifiers,
+        private val secureDeviceSettings: ProvideIdentifiers,
+        private val systemDeviceSettings: ProvideIdentifiers
     ) : Phone {
         private val result = MutableStateFlow<List<Section>>(
             value = emptyList()
@@ -34,9 +36,23 @@ interface Phone {
                 icon = R.drawable.ic_perm_device_information,
                 items = globalDeviceSettings.provide()
             )
+            val systemDeviceSettings = Section(
+                title = "System Settings",
+                description = "System device settings",
+                icon = R.drawable.ic_perm_device_information,
+                items = systemDeviceSettings.provide()
+            )
+            val secureDeviceSettings = Section(
+                title = "Secure Settings",
+                description = "Secure device settings",
+                icon = R.drawable.ic_perm_device_information,
+                items = secureDeviceSettings.provide()
+            )
             result.value = listOf(
                 props,
-                globalDeviceSettings
+                globalDeviceSettings,
+                systemDeviceSettings,
+                secureDeviceSettings
             )
         }
     }

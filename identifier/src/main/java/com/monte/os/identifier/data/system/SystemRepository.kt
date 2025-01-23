@@ -24,11 +24,5 @@ interface SystemRepository {
 
     fun systemServices(): List<String>
 
-    fun systemSettings(): List<SystemSetting>
-
-    fun globalSettings(): List<SystemSetting>
-
-    fun secureSettings(): List<SystemSetting>
-
     fun allProperties(): List<String>
 }

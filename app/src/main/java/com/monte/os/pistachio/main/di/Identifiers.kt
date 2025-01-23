@@ -1,7 +1,9 @@
 package com.monte.os.pistachio.main.di
 
 import android.content.ContentResolver
-import com.monte.os.identifier.GlobalDeviceSettings
+import com.monte.os.identifier.settings.GlobalDeviceSettings
+import com.monte.os.identifier.settings.SecureDeviceSettings
+import com.monte.os.identifier.settings.SystemDeviceSettings
 import com.monte.os.pistachio.Phone
 import dagger.Module
 import dagger.Provides
@@ -20,6 +22,12 @@ internal object Identifiers {
     ): Phone {
         return Phone.Base(
             globalDeviceSettings = GlobalDeviceSettings(
+                contentResolver = contentResolver
+            ),
+            systemDeviceSettings = SystemDeviceSettings(
+                contentResolver = contentResolver
+            ),
+            secureDeviceSettings = SecureDeviceSettings(
                 contentResolver = contentResolver
             )
         )
