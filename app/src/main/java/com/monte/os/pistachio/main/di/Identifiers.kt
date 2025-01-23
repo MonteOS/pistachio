@@ -1,7 +1,6 @@
 package com.monte.os.pistachio.main.di
 
-import com.monte.os.identifier.PhoneIdentifiers
-import com.monte.os.identifier.PhoneIdentifiersImpl
+import com.monte.os.pistachio.core.Phone
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,8 +14,8 @@ internal object Identifiers {
     @Provides
     @Singleton
     internal fun providePhoneIdentifiers(
-    ): PhoneIdentifiers {
-        return PhoneIdentifiersImpl()
+    ): Phone {
+        return Phone.Base()
     }
 
 }

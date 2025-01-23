@@ -1,0 +1,24 @@
+package com.monte.os.pistachio.core
+
+import com.monte.os.pistachio.main.component.section.Section
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import javax.inject.Inject
+
+interface Phone {
+    fun identifiers(): Flow<List<Section>>
+
+    suspend fun reload()
+
+    class Base @Inject constructor() : Phone {
+        private val result = MutableStateFlow<List<Section>>(
+            value = emptyList()
+        )
+
+        override fun identifiers() = result
+
+        override suspend fun reload() {
+            result.value = listOf()
+        }
+    }
+}
