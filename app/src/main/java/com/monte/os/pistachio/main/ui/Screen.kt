@@ -34,9 +34,7 @@ fun Screen(
             .fillMaxSize()
     ) {
         list.forEachIndexed { index, section ->
-            item(
-                key = { section.title }
-            ) {
+            item {
                 SectionUi(
                     modifier = Modifier
                         .padding(12.dp),
