@@ -32,11 +32,11 @@ internal val AppTypography = Typography(
         fontSize = 16.sp
     ),
     bodyLarge = TextStyle(
-        fontWeight = FontWeight.Medium,
+        fontWeight = FontWeight.Normal,
         fontSize = 20.sp
     ),
     bodyMedium = TextStyle(
-        fontWeight = FontWeight.SemiBold,
+        fontWeight = FontWeight.Normal,
         fontSize = 14.sp
     ),
     bodySmall = TextStyle(
