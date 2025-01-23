@@ -1,8 +1,8 @@
-package com.monte.os.identifier.screen
+package com.monte.os.identifier.data.screen
 
 import android.content.Context
 import android.view.WindowManager
-import com.monte.os.identifier.core.Property
+import com.monte.os.identifier.data.core.Property
 import javax.inject.Inject
 import kotlin.math.roundToInt
 

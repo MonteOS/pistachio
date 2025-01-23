@@ -1,4 +1,4 @@
-package com.monte.os.identifier.system
+package com.monte.os.identifier.data.system
 
 data class SystemSetting(
     val id: String,

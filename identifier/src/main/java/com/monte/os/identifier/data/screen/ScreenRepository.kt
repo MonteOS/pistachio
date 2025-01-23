@@ -1,4 +1,4 @@
-package com.monte.os.identifier.screen
+package com.monte.os.identifier.data.screen
 
 interface ScreenRepository {
 

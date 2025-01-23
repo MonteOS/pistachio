@@ -1,4 +1,4 @@
-package com.monte.os.identifier.sim
+package com.monte.os.identifier.data.sim
 
 interface SimRepository {
 

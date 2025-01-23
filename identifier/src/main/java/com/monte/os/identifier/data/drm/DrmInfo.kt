@@ -1,4 +1,4 @@
-package com.monte.os.identifier.drm
+package com.monte.os.identifier.data.drm
 
 import android.media.MediaDrm
 import java.security.MessageDigest

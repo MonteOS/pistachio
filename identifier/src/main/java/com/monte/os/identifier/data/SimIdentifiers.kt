@@ -1,6 +1,6 @@
-package com.monte.os.identifier
+package com.monte.os.identifier.data
 
-import com.monte.os.identifier.sim.SimRepository
+import com.monte.os.identifier.data.sim.SimRepository
 import javax.inject.Inject
 
 interface SimIdentifiers {

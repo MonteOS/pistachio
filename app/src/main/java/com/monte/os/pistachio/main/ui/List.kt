@@ -23,10 +23,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.monte.os.identifier.Section
 
 @Composable
-fun ListWithHeaders(
-    sections: List<HeaderWithPairs>,
+fun List(
+    data: List<Section>,
     modifier: Modifier = Modifier
 ) {
     var showDialog by remember { mutableStateOf(false) }
@@ -38,7 +39,7 @@ fun ListWithHeaders(
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
-        sections.forEach { section ->
+        data.forEach { section ->
             item {
                 HorizontalDivider(
                     color = MaterialTheme.colorScheme.onBackground.copy(
@@ -46,7 +47,7 @@ fun ListWithHeaders(
                     )
                 )
                 Text(
-                    text = section.header,
+                    text = section.name,
                     fontSize = 22.sp,
                     fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.primary,
@@ -63,8 +64,8 @@ fun ListWithHeaders(
                     )
                 )
             }
-            items(section.data.size) { index ->
-                val pair = section.data[index]
+            items(section.items.size) { index ->
+                val item = section.items[index]
                 val backgroundColor = if (index % 2 == 0) {
                     MaterialTheme.colorScheme.surfaceVariant
                 } else {
@@ -78,13 +79,13 @@ fun ListWithHeaders(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = pair.first,
+                        text = item.name,
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Medium,
                         color = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier.weight(1f)
                     )
-                    if (pair.second.length > 100) {
+                    if (item.value.length > 100) {
                         Text(
                             text = "...",
                             fontSize = 16.sp,
@@ -93,15 +94,15 @@ fun ListWithHeaders(
                             modifier = Modifier
                                 .weight(1f)
                                 .clickable {
-                                    dialogHeader = pair.first
-                                    dialogText = pair.second
+                                    dialogHeader = item.name
+                                    dialogText = item.value
                                     showDialog = true
                                 },
                             textAlign = TextAlign.End
                         )
                     } else {
                         Text(
-                            text = pair.second,
+                            text = item.value,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Medium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -133,8 +134,3 @@ fun ListWithHeaders(
         )
     }
 }
-
-data class HeaderWithPairs(
-    val header: String,
-    val data: List<Pair<String, String>>
-)

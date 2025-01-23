@@ -1,9 +1,9 @@
-package com.monte.os.identifier.system
+package com.monte.os.identifier.data.system
 
 import android.content.Context
 import android.net.Uri
 import android.os.Build
-import com.monte.os.identifier.core.Property
+import com.monte.os.identifier.data.core.Property
 import com.topjohnwu.superuser.Shell
 import java.text.SimpleDateFormat
 import java.util.Calendar

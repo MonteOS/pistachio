@@ -1,4 +1,4 @@
-package com.monte.os.identifier.drm
+package com.monte.os.identifier.data.drm
 
 interface DrmRepository {
 

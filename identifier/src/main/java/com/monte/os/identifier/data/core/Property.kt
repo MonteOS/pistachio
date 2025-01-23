@@ -1,4 +1,4 @@
-package com.monte.os.identifier.core
+package com.monte.os.identifier.data.core
 
 import com.topjohnwu.superuser.Shell
 import javax.inject.Inject

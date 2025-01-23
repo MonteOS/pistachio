@@ -1,6 +1,6 @@
-package com.monte.os.identifier
+package com.monte.os.identifier.data
 
-import com.monte.os.identifier.system.SystemRepository
+import com.monte.os.identifier.data.system.SystemRepository
 import javax.inject.Inject
 
 interface BuildIdentifiers {

@@ -1,6 +1,6 @@
-package com.monte.os.identifier
+package com.monte.os.identifier.data
 
-import com.monte.os.identifier.drm.DrmRepository
+import com.monte.os.identifier.data.drm.DrmRepository
 import javax.inject.Inject
 
 interface DrmIdentifiers {

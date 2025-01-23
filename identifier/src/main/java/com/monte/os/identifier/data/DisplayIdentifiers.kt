@@ -1,6 +1,6 @@
-package com.monte.os.identifier
+package com.monte.os.identifier.data
 
-import com.monte.os.identifier.screen.ScreenRepository
+import com.monte.os.identifier.data.screen.ScreenRepository
 import javax.inject.Inject
 
 interface DisplayIdentifiers {

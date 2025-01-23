@@ -1,18 +1,20 @@
 package com.monte.os.pistachio.main.di
 
-import com.monte.os.identifier.AppLifetimeScopeIdentifiers
-import com.monte.os.identifier.BuildIdentifiers
-import com.monte.os.identifier.DeviceIdentifiers
-import com.monte.os.identifier.DisplayIdentifiers
-import com.monte.os.identifier.DrmIdentifiers
-import com.monte.os.identifier.SimIdentifiers
-import com.monte.os.identifier.SystemIdentifiers
-import com.monte.os.identifier.TimeAndDateIdentifiers
-import com.monte.os.identifier.appscope.AppScopeRepository
-import com.monte.os.identifier.drm.DrmRepository
-import com.monte.os.identifier.screen.ScreenRepository
-import com.monte.os.identifier.sim.SimRepository
-import com.monte.os.identifier.system.SystemRepository
+import com.monte.os.identifier.data.AppLifetimeScopeIdentifiers
+import com.monte.os.identifier.data.BuildIdentifiers
+import com.monte.os.identifier.data.DeviceIdentifiers
+import com.monte.os.identifier.data.DisplayIdentifiers
+import com.monte.os.identifier.data.DrmIdentifiers
+import com.monte.os.identifier.data.SimIdentifiers
+import com.monte.os.identifier.data.SystemIdentifiers
+import com.monte.os.identifier.data.TimeAndDateIdentifiers
+import com.monte.os.identifier.data.appscope.AppScopeRepository
+import com.monte.os.identifier.data.drm.DrmRepository
+import com.monte.os.identifier.data.screen.ScreenRepository
+import com.monte.os.identifier.data.sim.SimRepository
+import com.monte.os.identifier.data.system.SystemRepository
+import com.monte.os.identifier.PhoneIdentifiers
+import com.monte.os.identifier.PhoneIdentifiersImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,6 +24,13 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 internal object Identifiers {
+
+    @Provides
+    @Singleton
+    internal fun providePhoneIdentifiers(
+    ): PhoneIdentifiers {
+        return PhoneIdentifiersImpl()
+    }
 
     @Provides
     @Singleton

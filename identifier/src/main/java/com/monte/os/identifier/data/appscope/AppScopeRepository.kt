@@ -1,4 +1,4 @@
-package com.monte.os.identifier.appscope
+package com.monte.os.identifier.data.appscope
 
 interface AppScopeRepository {
 
