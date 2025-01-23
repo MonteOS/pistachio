@@ -12,8 +12,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.monte.os.identifier.Item
-import com.monte.os.pistachio.design.text.JustText
-import com.monte.os.pistachio.design.text.SingleText
+import com.monte.os.designsystem.text.JustText
+import com.monte.os.designsystem.text.SingleText
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)

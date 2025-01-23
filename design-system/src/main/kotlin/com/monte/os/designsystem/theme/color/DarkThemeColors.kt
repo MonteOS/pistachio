@@ -1,4 +1,4 @@
-package com.monte.os.pistachio.design.theme.color
+package com.monte.os.designsystem.theme.color
 
 import androidx.compose.ui.graphics.Color
 

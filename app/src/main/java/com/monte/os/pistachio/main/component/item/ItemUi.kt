@@ -7,8 +7,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.monte.os.pistachio.design.text.JustText
-import com.monte.os.pistachio.design.text.SingleText
+import com.monte.os.designsystem.text.JustText
+import com.monte.os.designsystem.text.SingleText
 
 @Composable
 fun ItemUi(

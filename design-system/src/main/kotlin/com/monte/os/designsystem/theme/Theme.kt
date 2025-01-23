@@ -1,7 +1,9 @@
-package com.monte.os.pistachio.design.theme
+package com.monte.os.designsystem.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import com.monte.os.designsystem.theme.AppTypography
+import com.monte.os.designsystem.theme.lightScheme
 
 
 @Composable

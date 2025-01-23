@@ -1,9 +1,9 @@
-package com.monte.os.pistachio.design.theme.color
+package com.monte.os.designsystem.theme.color
 
 import androidx.compose.ui.graphics.Color
 
 
-internal val primaryLight = Color(0xFFFF9900)
+internal val primaryLight = Color(0xFFFF5722)
 internal val onPrimaryLight = Color(0xFF000000)
 internal val primaryContainerLight = Color(0xFFFFC72C)
 internal val onPrimaryContainerLight = Color(0xFF000000)

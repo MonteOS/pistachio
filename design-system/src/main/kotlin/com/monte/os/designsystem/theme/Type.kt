@@ -1,4 +1,4 @@
-package com.monte.os.pistachio.design.theme
+package com.monte.os.designsystem.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

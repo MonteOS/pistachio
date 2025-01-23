@@ -1,4 +1,4 @@
-package com.monte.os.pistachio.design.background
+package com.monte.os.designsystem.background
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember

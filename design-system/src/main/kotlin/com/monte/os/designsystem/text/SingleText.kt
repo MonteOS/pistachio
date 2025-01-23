@@ -1,4 +1,4 @@
-package com.monte.os.pistachio.design.text
+package com.monte.os.designsystem.text
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

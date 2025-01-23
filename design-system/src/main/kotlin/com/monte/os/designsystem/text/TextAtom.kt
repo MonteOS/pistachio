@@ -1,4 +1,4 @@
-package com.monte.os.pistachio.design.text
+package com.monte.os.designsystem.text
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Brush
@@ -10,7 +10,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.withLink
 import androidx.compose.ui.text.withStyle
 
-import com.monte.os.pistachio.design.background.solidBackground
+import com.monte.os.designsystem.background.solidBackground
 
 
 interface TextAtom {
