@@ -1,16 +1,24 @@
 package com.monte.os.pistachio.main.component.item
 
-import androidx.compose.material3.AlertDialog
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.TextButton
+import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.monte.os.identifier.Item
-import com.monte.os.pistachio.R
 import com.monte.os.pistachio.design.text.JustText
 import com.monte.os.pistachio.design.text.SingleText
+import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ItemsDialog(
     title: String,
@@ -18,9 +26,25 @@ fun ItemsDialog(
     onDismiss: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    AlertDialog(
-        modifier = modifier,
-        title = {
+    val bottomSheetState = rememberModalBottomSheetState(
+        skipPartiallyExpanded = true
+    )
+    val coroutineScope = rememberCoroutineScope()
+
+    ModalBottomSheet(
+        onDismissRequest = {
+            coroutineScope.launch {
+                bottomSheetState.hide()
+            }
+            onDismiss()
+        },
+        sheetState = bottomSheetState,
+        modifier = modifier
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
             SingleText(
                 text = JustText(
                     text = title,
@@ -28,25 +52,10 @@ fun ItemsDialog(
                     color = MaterialTheme.colorScheme.onBackground
                 )
             )
-        },
-        text = {
+            Spacer(modifier = Modifier.height(16.dp))
             ItemsList(
                 list = items
             )
-        },
-        onDismissRequest = onDismiss,
-        confirmButton = {
-            TextButton(
-                onClick = onDismiss
-            ) {
-                SingleText(
-                    text = JustText(
-                        text = stringResource(R.string.ok_button),
-                        style = MaterialTheme.typography.titleSmall,
-                        color = MaterialTheme.colorScheme.onBackground
-                    )
-                )
-            }
         }
-    )
+    }
 }
