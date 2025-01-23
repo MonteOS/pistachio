@@ -1,10 +1,12 @@
 package com.monte.os.pistachio.main.component.item
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.monte.os.pistachio.design.text.JustText
 import com.monte.os.pistachio.design.text.SingleText
 
@@ -16,7 +18,8 @@ fun ItemUi(
 ) {
     Column(
         modifier = modifier
-            .fillMaxWidth()
+            .fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         SingleText(
             text = JustText(
@@ -29,9 +32,7 @@ fun ItemUi(
             text = JustText(
                 text = value,
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onBackground.copy(
-                    alpha = 0.7f
-                )
+                color = MaterialTheme.colorScheme.onBackground
             )
         )
     }
