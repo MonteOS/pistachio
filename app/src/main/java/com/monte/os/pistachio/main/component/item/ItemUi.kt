@@ -1,4 +1,4 @@
-package com.monte.os.pistachio.main.ui
+package com.monte.os.pistachio.main.component.item
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth

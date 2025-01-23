@@ -1,4 +1,4 @@
-package com.monte.os.pistachio.main.ui
+package com.monte.os.pistachio.main.component.section
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -15,7 +15,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.monte.os.pistachio.design.text.JustText
 import com.monte.os.pistachio.design.text.SingleText
-import com.monte.os.pistachio.main.model.Section
 
 @Composable
 fun SectionUi(
