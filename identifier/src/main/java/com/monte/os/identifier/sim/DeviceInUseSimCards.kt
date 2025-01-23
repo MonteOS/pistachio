@@ -2,13 +2,14 @@ package com.monte.os.identifier.sim
 
 import android.content.Context
 import android.telephony.TelephonyManager
+import com.monte.os.identifier.Item
+import com.monte.os.identifier.ProvideIdentifiers
 import com.monte.os.identifier.R
-import javax.inject.Inject
 
-class SimInfo @Inject constructor(
+class DeviceInUseSimCards(
     private val context: Context
-) : ProvideSIM {
-    override fun sim(): List<PhoneSIM> {
+) : ProvideIdentifiers {
+    override fun provide(): List<Item> {
         val telephony = context.getSystemService(
             Context.TELEPHONY_SERVICE
         ) as TelephonyManager
@@ -21,12 +22,10 @@ class SimInfo @Inject constructor(
             ?.firstOrNull() ?: ""
 
         return listOf(
-            PhoneSIM(
-                operatorName = telephony.simOperatorName,
-                operatorCode = telephony.simOperator,
-                country = simCountryIso,
-                countryCode = countryCode
-            )
+            Item("Operator Name", telephony.simOperatorName),
+            Item("Operator Code", telephony.simOperator),
+            Item("Country Code", countryCode),
+            Item("Country", simCountryIso),
         )
     }
 }

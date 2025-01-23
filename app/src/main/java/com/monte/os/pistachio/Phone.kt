@@ -15,7 +15,8 @@ interface Phone {
         private val deviceProperties: ProvideIdentifiers,
         private val globalDeviceSettings: ProvideIdentifiers,
         private val secureDeviceSettings: ProvideIdentifiers,
-        private val systemDeviceSettings: ProvideIdentifiers
+        private val systemDeviceSettings: ProvideIdentifiers,
+        private val deviceInUseSimCards: ProvideIdentifiers
     ) : Phone {
         private val result = MutableStateFlow<List<Section>>(
             value = emptyList()
@@ -48,11 +49,18 @@ interface Phone {
                 icon = R.drawable.ic_perm_device_information,
                 items = secureDeviceSettings.provide()
             )
+            val deviceInUseSimCards = Section(
+                title = "SIM In Use",
+                description = "Currently used SIM cards",
+                icon = R.drawable.ic_perm_device_information,
+                items = deviceInUseSimCards.provide()
+            )
             result.value = listOf(
                 props,
                 globalDeviceSettings,
                 systemDeviceSettings,
-                secureDeviceSettings
+                secureDeviceSettings,
+                deviceInUseSimCards
             )
         }
     }
