@@ -38,7 +38,9 @@ fun SectionUi(
             ),
             contentDescription = null
         )
-        Column {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
             SingleText(
                 text = JustText(
                     text = stringResource(section.title),
