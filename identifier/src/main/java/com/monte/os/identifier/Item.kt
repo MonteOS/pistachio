@@ -1,4 +1,4 @@
-package com.monte.os.pistachio.main.component.item
+package com.monte.os.identifier
 
 data class Item(
     val name: String,

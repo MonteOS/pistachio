@@ -1,7 +1,7 @@
 package com.monte.os.pistachio.main.component.section
 
 import androidx.annotation.DrawableRes
-import com.monte.os.pistachio.main.component.item.Item
+import com.monte.os.identifier.Item
 
 data class Section(
     val title: String,

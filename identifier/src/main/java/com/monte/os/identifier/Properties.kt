@@ -13,7 +13,7 @@ object Properties {
             val matchResult = regex.find(line)
             matchResult?.let {
                 val (key, value) = it.destructured
-                SimpleItem(key, value)
+//                SimpleItem(key, value)
             }
         }
 }
