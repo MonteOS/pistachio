@@ -1,6 +1,5 @@
 package com.monte.os.pistachio
 
-import com.monte.os.identifier.Properties
 import com.monte.os.identifier.ProvideIdentifiers
 import com.monte.os.pistachio.main.component.section.Section
 import kotlinx.coroutines.flow.Flow
@@ -13,6 +12,7 @@ interface Phone {
     suspend fun reload()
 
     class Base @Inject constructor(
+        private val deviceProperties: ProvideIdentifiers,
         private val globalDeviceSettings: ProvideIdentifiers,
         private val secureDeviceSettings: ProvideIdentifiers,
         private val systemDeviceSettings: ProvideIdentifiers
@@ -28,7 +28,7 @@ interface Phone {
                 title = "Props",
                 description = "Android property list",
                 icon = R.drawable.ic_perm_device_information,
-                items = Properties.all
+                items = deviceProperties.provide()
             )
             val globalDeviceSettings = Section(
                 title = "Global Settings",
