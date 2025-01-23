@@ -2,6 +2,8 @@ package com.monte.os.pistachio.main.di
 
 import android.content.ContentResolver
 import android.content.Context
+import com.monte.os.identifier.data.drm.DrmInfo
+import com.monte.os.identifier.drm.DeviceDrmModule
 import com.monte.os.identifier.props.DeviceProperties
 import com.monte.os.identifier.settings.GlobalDeviceSettings
 import com.monte.os.identifier.settings.SecureDeviceSettings
@@ -38,6 +40,9 @@ internal object Identifiers {
             ),
             deviceInUseSimCards = DeviceInUseSimCards(
                 context = context
+            ),
+            deviceDrmModule = DeviceDrmModule(
+                repository = DrmInfo()
             )
         )
     }
