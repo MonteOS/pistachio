@@ -6,9 +6,10 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.monte.os.pistachio.R
@@ -22,14 +23,8 @@ fun Screen(
     list: List<Section>,
     modifier: Modifier = Modifier
 ) {
-    val indexes = rememberSaveable {
-        mutableStateListOf<Int>()
-    }
-
-    val sections = remember(indexes) {
-        indexes.mapNotNull { index ->
-            list.getOrNull(index)
-        }
+    var selected by rememberSaveable {
+        mutableStateOf<Int?>(null)
     }
 
     LazyColumn(
@@ -40,20 +35,21 @@ fun Screen(
                 SectionUi(
                     section = section,
                     onClick = {
-                        indexes.add(index)
+                        selected = index
                     }
                 )
             }
         }
     }
 
-    if (sections.isNotEmpty()) {
+    selected?.let { index ->
+        val selectedSection = list[index]
         ItemsDialog(
             title = stringResource(
-                sections.first().title
+                id = selectedSection.title
             ),
-            items = sections.first().items,
-            onDismiss = { indexes.clear() }
+            items = selectedSection.items,
+            onDismiss = { selected = null }
         )
     }
 }
