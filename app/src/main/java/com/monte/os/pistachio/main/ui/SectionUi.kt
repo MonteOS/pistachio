@@ -1,6 +1,7 @@
 package com.monte.os.pistachio.main.ui
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.monte.os.pistachio.design.text.JustText
 import com.monte.os.pistachio.design.text.SingleText
 import com.monte.os.pistachio.main.model.Section
@@ -25,7 +27,8 @@ fun SectionUi(
         modifier = modifier
             .fillMaxWidth()
             .clickable { onClick() },
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Icon(
             painter = painterResource(
