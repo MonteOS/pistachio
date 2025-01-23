@@ -28,8 +28,8 @@ interface Phone {
 
         override suspend fun reload() {
             val props = Section(
-                title = "Props",
-                description = "Android property list",
+                title = "Properties",
+                description = "Device properties list",
                 icon = R.drawable.ic_perm_device_information,
                 items = deviceProperties.provide()
             )
