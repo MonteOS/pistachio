@@ -46,9 +46,7 @@ fun Screen(
     selected?.let { index ->
         val selectedSection = list[index]
         ItemsDialog(
-            title = stringResource(
-                id = selectedSection.title
-            ),
+            title = selectedSection.title,
             items = selectedSection.items,
             onDismiss = { selected = null }
         )
