@@ -9,8 +9,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.monte.os.pistachio.main.ui.Screen
 import com.monte.os.pistachio.design.theme.ApplicationTheme
+import com.monte.os.pistachio.main.ui.Screen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,10 +30,10 @@ class MainActivity : ComponentActivity() {
             ApplicationTheme {
                 Scaffold { innerPadding ->
                     Screen(
-                        data = state,
                         modifier = Modifier.padding(
                             paddingValues = innerPadding
-                        )
+                        ),
+                        list = emptyList()
                     )
                 }
             }
