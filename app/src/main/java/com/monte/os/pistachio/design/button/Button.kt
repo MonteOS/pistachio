@@ -1,4 +1,4 @@
-package com.monte.os.pistachio.design.atom.button
+package com.monte.os.pistachio.design.button
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
