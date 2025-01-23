@@ -34,25 +34,25 @@ interface Phone {
             val globalDeviceSettings = Section(
                 title = "Global Settings",
                 description = "Global device settings",
-                icon = R.drawable.ic_perm_device_information,
+                icon = R.drawable.ic_phone,
                 items = globalDeviceSettings.provide()
             )
             val systemDeviceSettings = Section(
                 title = "System Settings",
                 description = "System device settings",
-                icon = R.drawable.ic_perm_device_information,
+                icon = R.drawable.ic_phone,
                 items = systemDeviceSettings.provide()
             )
             val secureDeviceSettings = Section(
                 title = "Secure Settings",
                 description = "Secure device settings",
-                icon = R.drawable.ic_perm_device_information,
+                icon = R.drawable.ic_secure,
                 items = secureDeviceSettings.provide()
             )
             val deviceInUseSimCards = Section(
-                title = "SIM In Use",
+                title = "SIM",
                 description = "Currently used SIM cards",
-                icon = R.drawable.ic_perm_device_information,
+                icon = R.drawable.ic_sim_card,
                 items = deviceInUseSimCards.provide()
             )
             result.value = listOf(
