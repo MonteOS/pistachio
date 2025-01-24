@@ -4,14 +4,47 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.BatteryManager
+import android.os.Build
 import javax.inject.Inject
+
 
 class BatteryRepositoryImpl @Inject constructor(
     private val context: Context
 ) : BatteryRepository {
+    private val batteryManager = context.getSystemService(
+        Context.BATTERY_SERVICE
+    ) as BatteryManager
+
     private val batteryStatus: Intent? = IntentFilter(
         Intent.ACTION_BATTERY_CHANGED
     ).let { context.registerReceiver(null, it) }
+
+    override fun cyclesCount(): Int {
+        val cycleCount = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            batteryStatus?.run {
+                hasExtra(BatteryManager.EXTRA_CYCLE_COUNT).takeIf { it }?.let {
+                    getIntExtra(BatteryManager.EXTRA_CYCLE_COUNT, 0)
+                }
+            }
+        } else {
+            null
+        }
+        return cycleCount ?: 0
+    }
+
+    override fun startedCapacity(): Int {
+        return 0 // TODO
+    }
+
+    override fun estimatedCapacity(): Int {
+        val chargeCounter = batteryManager.getLongProperty(
+            BatteryManager.BATTERY_PROPERTY_CHARGE_COUNTER
+        )
+        val capacity = batteryManager.getLongProperty(
+            BatteryManager.BATTERY_PROPERTY_CAPACITY
+        )
+        return (chargeCounter / capacity / 10).toInt()
+    }
 
     override fun level(): Float {
         return batteryStatus?.let { intent ->

@@ -9,6 +9,9 @@ class BatteryModule @Inject constructor(
 ) : ProvideIdentifiers {
     override fun provide(): List<Item> {
         return listOf(
+            Item("Started capacity", "${repository.startedCapacity()} mAh"),
+            Item("Estimated capacity", "${repository.estimatedCapacity()} mAh"),
+            Item("Cycles count", "${repository.cyclesCount()}"),
             Item("Level", "${repository.level()}%")
         )
     }
