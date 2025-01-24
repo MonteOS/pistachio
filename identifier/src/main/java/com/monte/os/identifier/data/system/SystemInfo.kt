@@ -83,10 +83,6 @@ class SystemInfo @Inject constructor(
         return "$displayName ($localTime)"
     }
 
-    override fun systemServices(): List<String> {
-        return Shell.cmd("service list").exec().out
-    }
-
     override fun allProperties(): List<String> {
         return property.all()
     }

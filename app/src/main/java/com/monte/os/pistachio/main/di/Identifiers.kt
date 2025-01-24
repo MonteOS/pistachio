@@ -9,6 +9,7 @@ import com.monte.os.identifier.settings.GlobalDeviceSettings
 import com.monte.os.identifier.settings.SecureDeviceSettings
 import com.monte.os.identifier.settings.SystemDeviceSettings
 import com.monte.os.identifier.sim.DeviceInUseSimCards
+import com.monte.os.identifier.system.DeviceSystemServices
 import com.monte.os.pistachio.Phone
 import dagger.Module
 import dagger.Provides
@@ -44,7 +45,8 @@ internal object Identifiers {
             deviceDrmModule = DeviceDrmModule(),
             applicationScope = ApplicationScope(
                 context = context
-            )
+            ),
+            deviceSystemServices = DeviceSystemServices()
         )
     }
 
