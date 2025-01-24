@@ -1,11 +1,13 @@
 package com.monte.os.identifier.battery
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.BatteryManager
 import android.os.Build
 import javax.inject.Inject
+import kotlin.math.roundToInt
 
 
 class BatteryRepositoryImpl @Inject constructor(
@@ -32,8 +34,22 @@ class BatteryRepositoryImpl @Inject constructor(
         return cycleCount ?: 0
     }
 
+    @SuppressLint("PrivateApi")
     override fun startedCapacity(): Int {
-        return 0 // TODO
+        val powerProfileClass = "com.android.internal.os.PowerProfile"
+        return try {
+            val powerProfile = Class.forName(powerProfileClass)
+                .getConstructor(Context::class.java)
+                .newInstance(context)
+
+            val batteryCapacity = powerProfile.javaClass
+                .getMethod("getBatteryCapacity")
+                .invoke(powerProfile) as Double
+
+            batteryCapacity.roundToInt()
+        } catch (e: Exception) {
+            0
+        }
     }
 
     override fun estimatedCapacity(): Int {
