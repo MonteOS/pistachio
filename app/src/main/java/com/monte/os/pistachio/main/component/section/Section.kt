@@ -8,4 +8,10 @@ data class Section(
     val description: String,
     @DrawableRes val icon: Int,
     val items: List<Item>
-)
+) {
+    fun notEmptyCount() = items.filter {
+        it.value.isNotEmpty()
+    }.size
+
+    fun itemsCount() = items.size
+}
