@@ -1,6 +1,7 @@
 package com.monte.os.pistachio
 
 import com.monte.os.identifier.ProvideIdentifiers
+import com.monte.os.identifier.display.DeviceDisplayModule
 import com.monte.os.pistachio.main.component.section.Section
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,7 +22,8 @@ interface Phone {
         private val applicationScope: ProvideIdentifiers,
         private val deviceSystemServices: ProvideIdentifiers,
         private val displayModule: ProvideIdentifiers,
-        private val deviceSystemProps: ProvideIdentifiers
+        private val deviceSystemProps: ProvideIdentifiers,
+        private val batteryModule: ProvideIdentifiers
     ) : Phone {
         private val result = MutableStateFlow<List<Section>>(
             value = emptyList()
@@ -90,6 +92,12 @@ interface Phone {
                 icon = R.drawable.ic_info,
                 items = deviceSystemProps.provide()
             )
+            val batteryModule = Section(
+                title = "Battery",
+                description = "Battery properties",
+                icon = R.drawable.ic_battery,
+                items = batteryModule.provide()
+            )
             result.value = listOf(
                 deviceSystemProps,
                 applicationScope,
@@ -100,7 +108,8 @@ interface Phone {
                 deviceInUseSimCards,
                 deviceDrmModule,
                 systemServices,
-                displayModule
+                displayModule,
+                batteryModule
             )
         }
     }

@@ -2,16 +2,18 @@ package com.monte.os.pistachio.di
 
 import android.content.ContentResolver
 import android.content.Context
+import com.monte.os.identifier.battery.BatteryModule
+import com.monte.os.identifier.battery.BatteryRepositoryImpl
 import com.monte.os.identifier.display.DeviceDisplayModule
 import com.monte.os.identifier.display.ScreenRepositoryImpl
 import com.monte.os.identifier.drm.DeviceDrmModule
 import com.monte.os.identifier.props.DeviceProperties
 import com.monte.os.identifier.scope.ApplicationScope
+import com.monte.os.identifier.services.DeviceSystemServices
 import com.monte.os.identifier.settings.GlobalDeviceSettings
 import com.monte.os.identifier.settings.SecureDeviceSettings
 import com.monte.os.identifier.settings.SystemDeviceSettings
 import com.monte.os.identifier.sim.DeviceInUseSimCards
-import com.monte.os.identifier.services.DeviceSystemServices
 import com.monte.os.identifier.system.DeviceSystemProps
 import com.monte.os.identifier.system.SystemRepositoryImpl
 import com.monte.os.pistachio.Phone
@@ -58,6 +60,11 @@ internal object Identifiers {
             ),
             deviceSystemProps = DeviceSystemProps(
                 repository = SystemRepositoryImpl()
+            ),
+            batteryModule = BatteryModule(
+                repository = BatteryRepositoryImpl(
+                    context = context
+                )
             )
         )
     }
