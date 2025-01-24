@@ -19,6 +19,6 @@ class DeviceSystemServices @Inject constructor(
                     value = serviceParameters
                 )
             }
-        }
+        }.filter { it.value.isNotEmpty() }
     }
 }
