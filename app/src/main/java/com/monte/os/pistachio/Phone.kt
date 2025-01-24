@@ -1,8 +1,6 @@
 package com.monte.os.pistachio
 
 import com.monte.os.identifier.ProvideIdentifiers
-import com.monte.os.identifier.display.DeviceDisplayModule
-import com.monte.os.identifier.system.DeviceSystemProps
 import com.monte.os.pistachio.main.component.section.Section
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
