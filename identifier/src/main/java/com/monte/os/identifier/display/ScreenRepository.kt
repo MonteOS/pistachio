@@ -1,4 +1,4 @@
-package com.monte.os.identifier.data.screen
+package com.monte.os.identifier.display
 
 interface ScreenRepository {
 
@@ -21,7 +21,5 @@ interface ScreenRepository {
     fun refreshRate(): String
 
     fun modes(): String
-
-    fun egl(): String
 
 }

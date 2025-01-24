@@ -1,4 +1,4 @@
-package com.monte.os.identifier.data.system
+package com.monte.os.identifier.system
 
 interface SystemRepository {
 
@@ -6,21 +6,15 @@ interface SystemRepository {
 
     fun toyboxVersion(): String
 
-    fun platform(): String
-
     fun javaVM(): String
 
     fun security(): String
 
     fun kernelVersion(): String
 
-    fun description(): String
-
     fun buildDate(): String
 
     fun language(): String
 
     fun timezone(): String
-
-    fun allProperties(): List<String>
 }

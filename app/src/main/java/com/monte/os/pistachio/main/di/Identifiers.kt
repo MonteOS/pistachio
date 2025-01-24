@@ -2,6 +2,8 @@ package com.monte.os.pistachio.main.di
 
 import android.content.ContentResolver
 import android.content.Context
+import com.monte.os.identifier.display.DeviceDisplayModule
+import com.monte.os.identifier.display.ScreenRepositoryImpl
 import com.monte.os.identifier.drm.DeviceDrmModule
 import com.monte.os.identifier.props.DeviceProperties
 import com.monte.os.identifier.scope.ApplicationScope
@@ -46,7 +48,12 @@ internal object Identifiers {
             applicationScope = ApplicationScope(
                 context = context
             ),
-            deviceSystemServices = DeviceSystemServices()
+            deviceSystemServices = DeviceSystemServices(),
+            displayModule = DeviceDisplayModule(
+                repository = ScreenRepositoryImpl(
+                    context = context
+                )
+            )
         )
     }
 

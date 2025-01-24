@@ -1,9 +1,7 @@
-package com.monte.os.identifier.data.system
+package com.monte.os.identifier.system
 
 import android.content.Context
-import android.net.Uri
 import android.os.Build
-import com.monte.os.identifier.data.core.Property
 import com.topjohnwu.superuser.Shell
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -15,7 +13,6 @@ import javax.inject.Inject
 
 class SystemInfo @Inject constructor(
     private val context: Context,
-    private val property: Property
 ) : SystemRepository {
     override fun architecture(): String {
         return Shell.cmd("uname -m")
@@ -33,10 +30,6 @@ class SystemInfo @Inject constructor(
             .toString()
     }
 
-    override fun platform(): String {
-        return property.get("ro.board.platform")
-    }
-
     override fun javaVM(): String {
         val javaVmName = System.getProperty("java.vm.name")
         val javaVmVersion = System.getProperty("java.vm.version")
@@ -45,10 +38,6 @@ class SystemInfo @Inject constructor(
 
     override fun security(): String {
         return Build.VERSION.SECURITY_PATCH
-    }
-
-    override fun description(): String {
-        return property.get("ro.build.description")
     }
 
     override fun kernelVersion(): String {
@@ -81,9 +70,5 @@ class SystemInfo @Inject constructor(
         val localTime = date.format(currentLocalTime)
         val displayName = TimeZone.getDefault().displayName
         return "$displayName ($localTime)"
-    }
-
-    override fun allProperties(): List<String> {
-        return property.all()
     }
 }

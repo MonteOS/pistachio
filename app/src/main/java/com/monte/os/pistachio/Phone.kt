@@ -1,8 +1,7 @@
 package com.monte.os.pistachio
 
 import com.monte.os.identifier.ProvideIdentifiers
-import com.monte.os.identifier.scope.ApplicationScope
-import com.monte.os.identifier.system.DeviceSystemServices
+import com.monte.os.identifier.display.DeviceDisplayModule
 import com.monte.os.pistachio.main.component.section.Section
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,7 +20,8 @@ interface Phone {
         private val deviceInUseSimCards: ProvideIdentifiers,
         private val deviceDrmModule: ProvideIdentifiers,
         private val applicationScope: ProvideIdentifiers,
-        private val deviceSystemServices: ProvideIdentifiers
+        private val deviceSystemServices: ProvideIdentifiers,
+        private val displayModule: DeviceDisplayModule,
     ) : Phone {
         private val result = MutableStateFlow<List<Section>>(
             value = emptyList()
@@ -78,6 +78,12 @@ interface Phone {
                 icon = R.drawable.ic_services,
                 items = deviceSystemServices.provide()
             )
+            val displayModule = Section(
+                title = "Display",
+                description = "Device display",
+                icon = R.drawable.ic_display,
+                items = displayModule.provide()
+            )
             result.value = listOf(
                 applicationScope,
                 props,
@@ -86,7 +92,8 @@ interface Phone {
                 secureDeviceSettings,
                 deviceInUseSimCards,
                 deviceDrmModule,
-                systemServices
+                systemServices,
+                displayModule
             )
         }
     }
