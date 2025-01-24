@@ -47,4 +47,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.compose.material3)
     implementation(libs.libsu.core)
+    implementation(projects.designSystem)
+    implementation(projects.identifier)
 }
