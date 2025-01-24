@@ -21,8 +21,8 @@ class BatteryRepositoryImpl @Inject constructor(
         Intent.ACTION_BATTERY_CHANGED
     ).let { context.registerReceiver(null, it) }
 
-    override fun cyclesCount(): Int {
-        val cycleCount = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+    override fun cyclesCount(): Int? {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
             batteryStatus?.run {
                 hasExtra(BatteryManager.EXTRA_CYCLE_COUNT).takeIf { it }?.let {
                     getIntExtra(BatteryManager.EXTRA_CYCLE_COUNT, 0)
@@ -31,7 +31,6 @@ class BatteryRepositoryImpl @Inject constructor(
         } else {
             null
         }
-        return cycleCount ?: 0
     }
 
     @SuppressLint("PrivateApi")

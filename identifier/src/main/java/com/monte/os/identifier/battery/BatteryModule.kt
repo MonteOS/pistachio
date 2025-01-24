@@ -11,7 +11,7 @@ class BatteryModule @Inject constructor(
         return listOf(
             Item("Started capacity", "${repository.startedCapacity()} mAh"),
             Item("Estimated capacity", "${repository.estimatedCapacity()} mAh"),
-            Item("Cycles count", "${repository.cyclesCount()}"),
+            Item("Cycles count", "${repository.cyclesCount() ?: "Undefined"}"),
             Item("Level", "${repository.level()}%")
         )
     }

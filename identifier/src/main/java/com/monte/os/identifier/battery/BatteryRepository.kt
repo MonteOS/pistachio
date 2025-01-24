@@ -1,7 +1,7 @@
 package com.monte.os.identifier.battery
 
 interface BatteryRepository {
-    fun cyclesCount(): Int
+    fun cyclesCount(): Int?
 
     fun startedCapacity(): Int
 
