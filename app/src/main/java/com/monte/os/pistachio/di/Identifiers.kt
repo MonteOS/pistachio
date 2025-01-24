@@ -7,6 +7,7 @@ import com.monte.os.identifier.battery.BatteryRepositoryImpl
 import com.monte.os.identifier.display.DeviceDisplayModule
 import com.monte.os.identifier.display.ScreenRepositoryImpl
 import com.monte.os.identifier.drm.DeviceDrmModule
+import com.monte.os.identifier.drm.DrmRepositoryImpl
 import com.monte.os.identifier.props.DeviceProperties
 import com.monte.os.identifier.scope.ApplicationScope
 import com.monte.os.identifier.scope.ApplicationScopeRepositoryImpl
@@ -49,7 +50,9 @@ internal object Identifiers {
             deviceInUseSimCards = DeviceInUseSimCards(
                 context = context
             ),
-            deviceDrmModule = DeviceDrmModule(),
+            deviceDrmModule = DeviceDrmModule(
+                repository = DrmRepositoryImpl()
+            ),
             applicationScope = ApplicationScope(
                 repository = ApplicationScopeRepositoryImpl(
                     context = context
