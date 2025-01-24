@@ -9,6 +9,7 @@ import com.monte.os.identifier.display.ScreenRepositoryImpl
 import com.monte.os.identifier.drm.DeviceDrmModule
 import com.monte.os.identifier.props.DeviceProperties
 import com.monte.os.identifier.scope.ApplicationScope
+import com.monte.os.identifier.scope.ApplicationScopeRepositoryImpl
 import com.monte.os.identifier.services.DeviceSystemServices
 import com.monte.os.identifier.settings.GlobalDeviceSettings
 import com.monte.os.identifier.settings.SecureDeviceSettings
@@ -50,7 +51,9 @@ internal object Identifiers {
             ),
             deviceDrmModule = DeviceDrmModule(),
             applicationScope = ApplicationScope(
-                context = context
+                repository = ApplicationScopeRepositoryImpl(
+                    context = context
+                )
             ),
             deviceSystemServices = DeviceSystemServices(),
             displayModule = DeviceDisplayModule(
