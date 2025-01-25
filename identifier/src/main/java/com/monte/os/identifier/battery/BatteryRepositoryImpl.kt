@@ -23,11 +23,7 @@ class BatteryRepositoryImpl @Inject constructor(
 
     override fun cyclesCount(): Int? {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            batteryStatus?.run {
-                hasExtra(BatteryManager.EXTRA_CYCLE_COUNT).takeIf { it }?.let {
-                    getIntExtra(BatteryManager.EXTRA_CYCLE_COUNT, 0)
-                }
-            }
+            batteryStatus?.getIntExtra(BatteryManager.EXTRA_CYCLE_COUNT, 0)
         } else {
             null
         }
