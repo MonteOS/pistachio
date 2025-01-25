@@ -24,6 +24,7 @@ class DeviceInUseSimCards(
         return listOf(
             Item("Operator Name", telephony.simOperatorName),
             Item("Operator Code", telephony.simOperator),
+            Item("Carrier ID", telephony.simCarrierId.toString()),
             Item("Country Code", countryCode),
             Item("Country", simCountryIso),
         )
