@@ -22,7 +22,8 @@ interface Phone {
         private val deviceSystemServices: ProvideIdentifiers,
         private val displayModule: ProvideIdentifiers,
         private val deviceSystemProps: ProvideIdentifiers,
-        private val batteryModule: ProvideIdentifiers
+        private val batteryModule: ProvideIdentifiers,
+        private val sensorsModule: ProvideIdentifiers
     ) : Phone {
         private val result = MutableStateFlow<List<Section>>(
             value = emptyList()
@@ -97,6 +98,12 @@ interface Phone {
                 icon = R.drawable.ic_battery,
                 items = batteryModule.provide()
             )
+            val sensorsModule = Section(
+                title = "Sensors",
+                description = "Device sensors",
+                icon = R.drawable.ic_sensors,
+                items = sensorsModule.provide()
+            )
             result.value = listOf(
                 deviceSystemProps,
                 applicationScope,
@@ -108,7 +115,8 @@ interface Phone {
                 deviceDrmModule,
                 systemServices,
                 displayModule,
-                batteryModule
+                batteryModule,
+                sensorsModule
             )
         }
     }

@@ -11,6 +11,7 @@ import com.monte.os.identifier.drm.DrmRepositoryImpl
 import com.monte.os.identifier.props.DeviceProperties
 import com.monte.os.identifier.scope.ApplicationScope
 import com.monte.os.identifier.scope.ApplicationScopeRepositoryImpl
+import com.monte.os.identifier.sensors.DeviceSensorsModule
 import com.monte.os.identifier.services.DeviceSystemServices
 import com.monte.os.identifier.settings.GlobalDeviceSettings
 import com.monte.os.identifier.settings.SecureDeviceSettings
@@ -71,6 +72,9 @@ internal object Identifiers {
                 repository = BatteryRepositoryImpl(
                     context = context
                 )
+            ),
+            sensorsModule = DeviceSensorsModule(
+                context = context
             )
         )
     }
