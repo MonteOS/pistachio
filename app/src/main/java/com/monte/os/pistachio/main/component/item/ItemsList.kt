@@ -19,7 +19,9 @@ fun ItemsList(
             item {
                 ItemUi(
                     modifier = Modifier
-                        .padding(12.dp),
+                        .padding(
+                            all = 12.dp
+                        ),
                     name = item.name,
                     value = item.value
                 )

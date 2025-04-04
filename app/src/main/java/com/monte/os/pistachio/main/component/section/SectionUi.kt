@@ -26,9 +26,13 @@ fun SectionUi(
         modifier = modifier
             .fillMaxWidth()
             .clickable { onClick() }
-            .padding(16.dp),
+            .padding(
+                all = 16.dp
+            ),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(16.dp)
+        horizontalArrangement = Arrangement.spacedBy(
+            space = 16.dp
+        )
     ) {
         Icon(
             painter = painterResource(
@@ -37,7 +41,9 @@ fun SectionUi(
             contentDescription = null
         )
         Column(
-            verticalArrangement = Arrangement.spacedBy(4.dp)
+            verticalArrangement = Arrangement.spacedBy(
+                space = 4.dp
+            )
         ) {
             SingleText(
                 text = JustText(
