@@ -12,10 +12,10 @@ minSdk = "30"
 buildTools = "34.0.0"
 
 # compose
-activityCompose = "1.10.0"
-composeBom = "2025.01.00"
+activityCompose = "1.10.1"
+composeBom = "2025.03.01"
 androidxComposeCompiler = "1.5.12"
-androidxComposeNavigation = "2.8.5"
+androidxComposeNavigation = "2.8.9"
 
 # android-ktx
 coreKtx = "1.15.0"
