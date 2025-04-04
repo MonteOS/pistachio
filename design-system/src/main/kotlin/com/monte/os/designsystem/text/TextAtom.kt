@@ -12,7 +12,6 @@ import androidx.compose.ui.text.withStyle
 
 import com.monte.os.designsystem.background.solidBackground
 
-
 interface TextAtom {
     @Composable
     fun AnnotatedString(builder: AnnotatedString.Builder)
