@@ -9,7 +9,6 @@ import com.monte.os.identifier.display.ScreenRepositoryImpl
 import com.monte.os.identifier.drm.DeviceDrmModule
 import com.monte.os.identifier.drm.DrmRepositoryImpl
 import com.monte.os.identifier.props.DeviceProperties
-import com.monte.os.identifier.ram.RamModule
 import com.monte.os.identifier.scope.ApplicationScope
 import com.monte.os.identifier.scope.ApplicationScopeRepositoryImpl
 import com.monte.os.identifier.sensors.DeviceSensorsModule
@@ -75,9 +74,6 @@ internal object Identifiers {
                 )
             ),
             sensorsModule = DeviceSensorsModule(
-                context = context
-            ),
-            ramModule = RamModule(
                 context = context
             )
         )
