@@ -9,6 +9,7 @@ import com.monte.os.identifier.display.ScreenRepositoryImpl
 import com.monte.os.identifier.drm.DeviceDrmModule
 import com.monte.os.identifier.drm.DrmRepositoryImpl
 import com.monte.os.identifier.props.DeviceProperties
+import com.monte.os.identifier.research.ResearchIdentifiers
 import com.monte.os.identifier.scope.ApplicationScope
 import com.monte.os.identifier.scope.ApplicationScopeRepositoryImpl
 import com.monte.os.identifier.sensors.DeviceSensorsModule
@@ -37,7 +38,19 @@ internal object Identifiers {
         contentResolver: ContentResolver,
         @ApplicationContext context: Context,
     ): Phone {
+        val appScopeRepository = ApplicationScopeRepositoryImpl(
+            context = context
+        )
+        val drmRepository = DrmRepositoryImpl()
+        val batteryRepository = BatteryRepositoryImpl(
+            context = context
+        )
         return Phone.Base(
+            presentationProperties = ResearchIdentifiers(
+                appScopeRepository = appScopeRepository,
+                drmRepository = drmRepository,
+                batteryRepository = batteryRepository
+            ),
             deviceProperties = DeviceProperties(),
             globalDeviceSettings = GlobalDeviceSettings(
                 contentResolver = contentResolver
@@ -52,12 +65,10 @@ internal object Identifiers {
                 context = context
             ),
             deviceDrmModule = DeviceDrmModule(
-                repository = DrmRepositoryImpl()
+                repository = drmRepository
             ),
             applicationScope = ApplicationScope(
-                repository = ApplicationScopeRepositoryImpl(
-                    context = context
-                )
+                repository = appScopeRepository
             ),
             deviceSystemServices = DeviceSystemServices(),
             displayModule = DeviceDisplayModule(
@@ -69,9 +80,7 @@ internal object Identifiers {
                 repository = SystemRepositoryImpl()
             ),
             batteryModule = BatteryModule(
-                repository = BatteryRepositoryImpl(
-                    context = context
-                )
+                repository = batteryRepository
             ),
             sensorsModule = DeviceSensorsModule(
                 context = context

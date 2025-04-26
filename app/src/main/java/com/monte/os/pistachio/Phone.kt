@@ -12,6 +12,7 @@ interface Phone {
     suspend fun reload()
 
     class Base @Inject constructor(
+        private val presentationProperties: ProvideIdentifiers,
         private val deviceProperties: ProvideIdentifiers,
         private val globalDeviceSettings: ProvideIdentifiers,
         private val secureDeviceSettings: ProvideIdentifiers,
@@ -32,6 +33,12 @@ interface Phone {
         override fun identifiers() = result
 
         override suspend fun reload() {
+            val presentation = Section(
+                title = "Presentation",
+                description = "Modifier identifiers",
+                icon = R.drawable.ic_presentation,
+                items = presentationProperties.provide()
+            )
             val props = Section(
                 title = "Properties",
                 description = "Device properties list",
@@ -105,6 +112,7 @@ interface Phone {
                 items = sensorsModule.provide()
             )
             result.value = listOf(
+                presentation,
                 deviceSystemProps,
                 applicationScope,
                 props,
