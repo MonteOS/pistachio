@@ -1,7 +1,6 @@
 package com.convention
 
 import com.android.build.gradle.BaseExtension
-import com.convention.libs
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
