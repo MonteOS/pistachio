@@ -5,6 +5,7 @@ import android.telephony.TelephonyManager
 import com.monte.os.identifier.Item
 import com.monte.os.identifier.ProvideIdentifiers
 import com.monte.os.identifier.R
+import com.monte.os.identifier.props.Property
 
 class DeviceInUseSimCards(
     private val context: Context
@@ -20,12 +21,17 @@ class DeviceInUseSimCards(
             .map { it.split(",") }
             .find { it[1] == simCountryIso }
             ?.firstOrNull() ?: ""
+        val networkType = Property
+            .get("gsm.network.type")
+            .substringBefore(",")
 
         return listOf(
+            Item("Carrier ID", telephony.simCarrierId.toString()),
             Item("Operator Name", telephony.simOperatorName),
             Item("Operator Code", telephony.simOperator),
             Item("Country Code", countryCode),
             Item("Country", simCountryIso),
+            Item("Network Type", networkType),
         )
     }
 }

@@ -19,7 +19,9 @@ fun ItemUi(
     Column(
         modifier = modifier
             .fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(4.dp)
+        verticalArrangement = Arrangement.spacedBy(
+            space = 4.dp
+        )
     ) {
         SingleText(
             text = JustText(

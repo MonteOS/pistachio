@@ -1,9 +1,9 @@
 package com.monte.os.identifier.settings
 
 import android.content.ContentResolver
-import android.net.Uri
 import com.monte.os.identifier.Item
 import com.monte.os.identifier.ProvideIdentifiers
+import androidx.core.net.toUri
 
 abstract class AbstractDeviceSettings(
     private val contentResolver: ContentResolver,
@@ -12,7 +12,7 @@ abstract class AbstractDeviceSettings(
     override fun provide(): List<Item> {
         val items = mutableListOf<Item>()
         val cursor = contentResolver.query(
-            Uri.parse(uri), null, null,
+            uri.toUri(), null, null,
             null, null
         )
         while (cursor?.moveToNext() == true) {

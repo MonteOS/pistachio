@@ -10,7 +10,7 @@ class DeviceSystemServices @Inject constructor(
     override fun provide(): List<Item> {
         val output = Shell.cmd("service list").exec().out
         return output.mapNotNull { line ->
-            val regex = Regex("""(\w+): \[(.*?)]""")
+            val regex = Regex("""\d+\s+([\S]+): \[(.*?)]""")
             regex.find(line)?.let { matchResult ->
                 val serviceName = matchResult.groupValues[1]
                 val serviceParameters = matchResult.groupValues[2]
@@ -19,6 +19,6 @@ class DeviceSystemServices @Inject constructor(
                     value = serviceParameters
                 )
             }
-        }
+        }.sortedByDescending { it.value.isNotEmpty() }
     }
 }

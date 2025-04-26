@@ -1,7 +1,5 @@
 package com.convention
 
-import com.convention.KspConventionPlugin
-import com.convention.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

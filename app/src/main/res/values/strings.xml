@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">Pistachio</string>
-    <string name="ok_button">OK</string>
     <string name="monteos_privacy_check">MonteOS privacy check</string>
 </resources>

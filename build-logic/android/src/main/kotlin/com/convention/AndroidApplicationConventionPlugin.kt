@@ -1,7 +1,6 @@
 package com.convention
 
 import com.convention.android.KotlinAndroidBaseConventionPlugin
-import com.convention.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

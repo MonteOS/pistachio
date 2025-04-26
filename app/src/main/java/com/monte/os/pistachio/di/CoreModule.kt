@@ -1,4 +1,4 @@
-package com.monte.os.pistachio.main.di
+package com.monte.os.pistachio.di
 
 import android.content.ContentResolver
 import android.content.Context
@@ -28,5 +28,4 @@ internal object CoreModule {
     ): ContentResolver {
         return context.contentResolver
     }
-
 }

@@ -47,7 +47,9 @@ fun ItemsDialog(
             Header(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(12.dp),
+                    .padding(
+                        all = 12.dp
+                    ),
                 title = title
             )
             ItemsList(

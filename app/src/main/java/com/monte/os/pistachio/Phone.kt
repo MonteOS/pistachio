@@ -1,8 +1,6 @@
 package com.monte.os.pistachio
 
 import com.monte.os.identifier.ProvideIdentifiers
-import com.monte.os.identifier.display.DeviceDisplayModule
-import com.monte.os.identifier.system.DeviceSystemProps
 import com.monte.os.pistachio.main.component.section.Section
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,6 +12,7 @@ interface Phone {
     suspend fun reload()
 
     class Base @Inject constructor(
+        private val presentationProperties: ProvideIdentifiers,
         private val deviceProperties: ProvideIdentifiers,
         private val globalDeviceSettings: ProvideIdentifiers,
         private val secureDeviceSettings: ProvideIdentifiers,
@@ -23,7 +22,9 @@ interface Phone {
         private val applicationScope: ProvideIdentifiers,
         private val deviceSystemServices: ProvideIdentifiers,
         private val displayModule: ProvideIdentifiers,
-        private val deviceSystemProps: ProvideIdentifiers
+        private val deviceSystemProps: ProvideIdentifiers,
+        private val batteryModule: ProvideIdentifiers,
+        private val sensorsModule: ProvideIdentifiers
     ) : Phone {
         private val result = MutableStateFlow<List<Section>>(
             value = emptyList()
@@ -32,6 +33,12 @@ interface Phone {
         override fun identifiers() = result
 
         override suspend fun reload() {
+            val presentation = Section(
+                title = "Presentation",
+                description = "Modifier identifiers",
+                icon = R.drawable.ic_presentation,
+                items = presentationProperties.provide()
+            )
             val props = Section(
                 title = "Properties",
                 description = "Device properties list",
@@ -92,7 +99,20 @@ interface Phone {
                 icon = R.drawable.ic_info,
                 items = deviceSystemProps.provide()
             )
+            val batteryModule = Section(
+                title = "Battery",
+                description = "Battery properties",
+                icon = R.drawable.ic_battery,
+                items = batteryModule.provide()
+            )
+            val sensorsModule = Section(
+                title = "Sensors",
+                description = "Device sensors",
+                icon = R.drawable.ic_sensors,
+                items = sensorsModule.provide()
+            )
             result.value = listOf(
+                presentation,
                 deviceSystemProps,
                 applicationScope,
                 props,
@@ -102,7 +122,9 @@ interface Phone {
                 deviceInUseSimCards,
                 deviceDrmModule,
                 systemServices,
-                displayModule
+                displayModule,
+                batteryModule,
+                sensorsModule
             )
         }
     }
